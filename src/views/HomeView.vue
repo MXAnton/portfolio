@@ -157,7 +157,7 @@ h3 {
   --color-text: var(--blue--dark);
   --color-text--dark: var(--blue--dark60);
 
-  align-items: start;
+  /* align-items: start; */
 }
 
 .tools-wrapper {

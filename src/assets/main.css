@@ -5,6 +5,17 @@
   overflow-y: scroll;
   /* scroll-snap-type: y proximity; */
 }
+#app > * {
+  animation: site-load 0.4s forwards ease-in-out;
+}
+@keyframes site-load {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 /* GENERAL */
 a {
@@ -70,7 +81,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   gap: 1.5rem;
 
   padding: var(--vertical--padding) var(--horizontal--padding);

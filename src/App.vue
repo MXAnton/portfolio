@@ -4,7 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 export default {
   data() {
     return {
-      menuActive: false
+      menuActive: null
     }
   }
 }
@@ -20,7 +20,7 @@ export default {
       <img alt="Hamburger menu" src="@/assets/HamburgerMenu.svg" width="32" height="32" />
     </button>
 
-    <nav id="nav-menu" :class="{ active: menuActive }">
+    <nav id="nav-menu" :class="{ active: menuActive, close: menuActive == false }">
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/#tools">Tools</RouterLink>
       <RouterLink to="/#portfolio">Portfolio</RouterLink>
@@ -73,7 +73,11 @@ header {
 
   transform-origin: top;
 }
-#nav-menu:not(.active) {
+#nav-menu:not(.close) {
+  transform: scaleY(0) translateY(-20%);
+  opacity: 0;
+}
+#nav-menu.close {
   animation: nav-menu-fadeout 0.2s forwards ease-in-out;
 }
 #nav-menu.active {
@@ -103,13 +107,12 @@ header {
   color: var(--black);
 }
 
-
 /* FOOTER */
 footer {
   padding: 50px var(--horizontal--padding);
 
   text-align: center;
-  
+
   --color-text: var(--green-yellow--darker);
   color: var(--color-text);
 

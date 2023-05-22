@@ -2,11 +2,11 @@
 
 :root {
   --blue--lighter: #e7eff6;
-  --blue--lighter60: rgba(231, 239, 246, .6);
+  --blue--lighter60: rgba(231, 239, 246, 0.6);
   --blue--light: #bbd5ed;
   --blue: #294c60;
   --blue--dark: #001b2e;
-  --blue--dark60: rgba(0, 27, 46, .6);
+  --blue--dark60: rgba(0, 27, 46, 0.6);
 
   --black: #000;
 
@@ -42,7 +42,6 @@ body {
   min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background);
-  transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
   font-family: 'Space Mono', monospace;
   font-size: 16px;
