@@ -8,7 +8,7 @@
       <h4>from <span>SWEDEN</span></h4>
     </section>
 
-    <section id="main-tools">
+    <section id="tools">
       <h2>MAIN TOOLS<span class="small">:</span></h2>
 
       <div class="tools-wrapper">
@@ -95,4 +95,15 @@
 </template>
 
 <style scoped>
+#tools {
+  --color-background: var(--green-yellow);
+  --color-text: var(--blue--dark);
+  --color-text--dark: var(--blue--dark60);
+}
+
+#portfolio {
+  --color-background: var(--blue);
+  --color-text: var(--blue--lighter);
+  --color-text--dark: var(--blue--lighter60);
+}
 </style>

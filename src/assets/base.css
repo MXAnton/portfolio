@@ -2,9 +2,11 @@
 
 :root {
   --blue--lighter: #e7eff6;
+  --blue--lighter60: rgba(231, 239, 246, .6);
   --blue--light: #bbd5ed;
   --blue: #294c60;
   --blue--dark: #001b2e;
+  --blue--dark60: rgba(0, 27, 46, .6);
 
   --black: #000;
 

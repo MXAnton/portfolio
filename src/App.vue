@@ -31,7 +31,7 @@ export default {
   <RouterView />
 
   <footer>
-    <p>Copyright © {{ new Date().getFullYear() }} Anton Lehrberg All Rights Reserved</p>
+    <p>Copyright© {{ new Date().getFullYear() }} Anton Lehrberg All Rights Reserved</p>
   </footer>
 </template>
 
@@ -97,5 +97,16 @@ header {
 
 #nav-menu > a {
   color: var(--black);
+}
+
+
+/* FOOTER */
+footer {
+  padding: 50px var(--horizontal--padding);
+
+  text-align: center;
+  
+  --color-text: var(--green-yellow--darker);
+  color: var(--color-text);
 }
 </style>

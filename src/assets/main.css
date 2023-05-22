@@ -31,7 +31,7 @@ h1, h2 {
 
   font-weight: bold;
   
-  text-shadow: 0px 3px 1px #84E296;
+  text-shadow: 0px 3px 1px var(--color-text--dark);
 }
 
 h2 > .small {
@@ -44,7 +44,7 @@ h3 {
 
   font-weight: bold;
 
-  text-shadow: 0px 2px 1px #84E296;
+  text-shadow: 0px 2px 1px var(--color-text--dark);
 }
 
 h4 {
@@ -53,7 +53,7 @@ h4 {
 
   font-weight: bold;
 
-  text-shadow: 0px 1px 1px #3C68A4;
+  text-shadow: 0px 1px 1px var(--color-text--dark);
 }
 
 /* SECTIONS */
@@ -66,4 +66,7 @@ section {
   align-items: center;
 
   padding: var(--vertical--padding) var(--horizontal--padding);
+
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
