@@ -1,5 +1,12 @@
 @import './base.css';
 
+#app {
+  max-height: 100vh;
+  overflow-y: scroll;
+  /* scroll-snap-type: y proximity; */
+}
+
+/* GENERAL */
 a {
   text-decoration: underline;
   color: var(--white);
@@ -23,14 +30,14 @@ a img {
   display: block;
 }
 
-
 /* TEXTS */
-h1, h2 {
+h1,
+h2 {
   font-size: 3rem;
   line-height: 89.5%;
 
   font-weight: bold;
-  
+
   text-shadow: 0px 3px 1px var(--color-text--dark);
 }
 
@@ -64,9 +71,12 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1.5rem;
 
   padding: var(--vertical--padding) var(--horizontal--padding);
 
   background-color: var(--color-background);
   color: var(--color-text);
+
+  scroll-snap-align: start;
 }

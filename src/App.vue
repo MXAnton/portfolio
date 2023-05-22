@@ -37,6 +37,10 @@ export default {
 
 <style scoped>
 header {
+  position: fixed;
+
+  width: 100%;
+
   display: flex;
   justify-content: space-between;
 
@@ -108,5 +112,7 @@ footer {
   
   --color-text: var(--green-yellow--darker);
   color: var(--color-text);
+
+  scroll-snap-align: start;
 }
 </style>
