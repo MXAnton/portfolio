@@ -10,6 +10,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@botpoison/browser": "^0.1.30",
+    "axios": "^1.4.0",
     "vue": "^3.3.2",
     "vue-router": "^4.2.0"
   },

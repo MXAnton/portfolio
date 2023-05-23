@@ -1,9 +1,15 @@
 <script>
 const FORMSPARK_ACTION_URL = 'https://submit-form.com/6H31VKDg'
+const BOTPOISON_PUBLIC_KEY = 'pk_fe43b230-e893-4d80-9009-d5d1b91fd595'
+
+import axios from 'axios'
+import Botpoison from '@botpoison/browser'
 
 export default {
   data() {
     return {
+      botpoison: null,
+
       email: '',
       message: '',
 
@@ -11,23 +17,36 @@ export default {
     }
   },
 
+  created() {
+    // 2. Create a new instance with your public key
+    this.botpoison = new Botpoison({
+      publicKey: BOTPOISON_PUBLIC_KEY
+    })
+  },
+
   methods: {
     async submitForm() {
       this.contactFormLoading = true
 
-      await fetch(FORMSPARK_ACTION_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json'
-        },
-        body: JSON.stringify({
+      try {
+        // 3. Process a challenge
+        const { solution } = await this.botpoison.challenge()
+        await axios.post(FORMSPARK_ACTION_URL, {
           email: this.email,
-          message: this.message
+          message: this.message,
+          // 4. Forward the solution
+          _botpoison: solution
         })
-      })
 
-      this.$router.push({ path: '/thanks', query: { email: this.email, message: this.message } })
+        console.log('Form submitted')
+        this.$router.push({ path: '/thanks', query: { email: this.email, message: this.message } })
+      } catch (error) {
+        alert('Error submitting form')
+      } finally {
+        this.email = ''
+        this.message = ''
+        this.contactFormLoading = false
+      }
     }
   }
 }
@@ -139,7 +158,6 @@ export default {
 
         <form
           @submit.prevent="submitForm"
-          data-botpoison-public-key="pk_fe43b230-e893-4d80-9009-d5d1b91fd595"
           class="form-1"
           id="contact-form"
           :class="{ loading: contactFormLoading }"
@@ -171,7 +189,7 @@ export default {
           </div>
 
           <button type="submit" class="button-1" v-if="!contactFormLoading">Send</button>
-          <button class="button-1" v-else>Sending...</button>
+          <button class="button-1" disabled v-else>Sending...</button>
         </form>
       </div>
     </section>
