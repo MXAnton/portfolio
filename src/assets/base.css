@@ -7,6 +7,7 @@
   --blue: #294c60;
   --blue--dark: #001b2e;
   --blue--dark60: rgba(0, 27, 46, 0.6);
+  --blue--darker: #00101b;
 
   --black: #000;
 
@@ -28,6 +29,8 @@
 
   --horizontal--padding: 24px;
   --vertical--padding: 100px;
+
+  --site-max-width: 700px;
 }
 
 *,
@@ -48,4 +51,28 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Designing for scroll-bar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: gainsboro;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

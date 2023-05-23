@@ -1,72 +1,111 @@
-<script></script>
+<script>
+const FORMSPARK_ACTION_URL = 'https://submit-form.com/6H31VKDg'
+
+export default {
+  data() {
+    return {
+      email: '',
+      message: '',
+
+      contactFormLoading: false
+    }
+  },
+
+  methods: {
+    async submitForm() {
+      this.contactFormLoading = true
+
+      await fetch(FORMSPARK_ACTION_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          email: this.email,
+          message: this.message
+        })
+      })
+
+      this.$router.push({ path: '/thanks', query: { email: this.email, message: this.message } })
+    }
+  }
+}
+</script>
 
 <template>
   <main>
     <section id="home">
-      <h1>ANTON LEHRBERG</h1>
-      <h3>FULL STACK DEVELOPER</h3>
-      <span class="from-country"
-        ><h4>from</h4>
-        <h4 class="from-country__country">SWEDEN</h4></span
-      >
+      <div class="wrapper">
+        <h1>ANTON LEHRBERG</h1>
+        <h3>FULL STACK DEVELOPER</h3>
+        <span class="from-country"
+          ><h4>from</h4>
+          <h4 class="from-country__country">SWEDEN</h4></span
+        >
+      </div>
     </section>
 
     <section id="tools">
-      <h2>MAIN TOOLS<span class="small">:</span></h2>
+      <div class="wrapper">
+        <h2>MAIN TOOLS<span class="small">:</span></h2>
 
-      <div class="tools-wrapper">
-        <div class="tools__row">
-          <div class="tool--big">HTML</div>
-          <div class="tool--big">CSS</div>
-          <div class="tool--big">JS</div>
-        </div>
-        <div class="tools__row">
-          <div class="tool--big">Vue.js</div>
-          <div class="tool--big">Node.js</div>
-        </div>
-        <div class="tools__row">
-          <div class="tool--big">Express.js</div>
-          <div class="tool--big">SQL</div>
-        </div>
-        <div class="tools__row">
-          <div class="tool--big">Figma</div>
-          <div class="tool--big">Git</div>
+        <div class="tools-wrapper">
+          <div class="tools__row">
+            <div class="tool--big">HTML</div>
+            <div class="tool--big">CSS</div>
+            <div class="tool--big">JS</div>
+          </div>
+          <div class="tools__row">
+            <div class="tool--big">Vue.js</div>
+            <div class="tool--big">Node.js</div>
+          </div>
+          <div class="tools__row">
+            <div class="tool--big">Express.js</div>
+            <div class="tool--big">SQL</div>
+          </div>
+          <div class="tools__row">
+            <div class="tool--big">Figma</div>
+            <div class="tool--big">Git</div>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="portfolio">
-      <h2>PORTFOLIO</h2>
-      <p>I have made several websites, of which many are in professional use as you read this.</p>
+      <div class="wrapper">
+        <h2>PORTFOLIO</h2>
+        <p>I have made several websites, of which many are in professional use as you read this.</p>
 
-      <div class="examples">
-        <div class="example">
-          <img src="" alt="Display of homepage of site" />
+        <div class="examples">
+          <div class="example">
+            <img src="/images/showcase-mhfothem.jpg" alt="Display of homepage of site" />
 
-          <div class="example__content">
-            <a
-              href="https://www.calmprofessor.se/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="link-1"
-              >calmprofessor.se</a
-            >
-            <p>Take quick online courses where ever you are!</p>
+            <div class="example__content">
+              <a
+                href="https://www.calmprofessor.se/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="link-1"
+                >calmprofessor.se</a
+              >
+              <p>Take quick online courses where ever you are!</p>
 
-            <div class="tools-wrapper">
-              <div class="tool">HTML</div>
-              <div class="tool">CSS</div>
-              <div class="tool">JS</div>
-              <div class="tool">Vue.js</div>
-              <div class="tool">Node.js</div>
-              <div class="tool">Express.js</div>
-              <div class="tool">SQL</div>
+              <div class="tools-wrapper">
+                <div class="tool--small">HTML</div>
+                <div class="tool--small">CSS</div>
+                <div class="tool--small">JS</div>
+                <div class="tool--small">Vue.js</div>
+                <div class="tool--small">Node.js</div>
+                <div class="tool--small">Express.js</div>
+                <div class="tool--small">SQL</div>
+              </div>
             </div>
           </div>
         </div>
 
         <div class="example">
-          <img src="" alt="Display of homepage of site" />
+          <img src="/images/showcase-mhfothem.jpg" alt="Display of homepage of site" />
 
           <div class="example__content">
             <a
@@ -82,12 +121,12 @@
             </p>
 
             <div class="tools-wrapper">
-              <div class="tool">HTML</div>
-              <div class="tool">CSS</div>
-              <div class="tool">JS</div>
-              <div class="tool">Vue.js</div>
-              <div class="tool">Google Firestore & Auth</div>
-              <div class="tool">Figma</div>
+              <div class="tool--small">HTML</div>
+              <div class="tool--small">CSS</div>
+              <div class="tool--small">JS</div>
+              <div class="tool--small">Vue.js</div>
+              <div class="tool--small">Google Firestore & Auth</div>
+              <div class="tool--small">Figma</div>
             </div>
           </div>
         </div>
@@ -95,19 +134,46 @@
     </section>
 
     <section id="contact">
-      <h2>HIT ME UP</h2>
+      <div class="wrapper">
+        <h2>HIT ME UP</h2>
 
-      <form action="">
-        <input type="email" name="email" id="email" placeholder="Your email..." required />
-        <textarea
-          name="text"
-          id="text"
-          cols="30"
-          rows="10"
-          placeholder="Write me something..."
-          required
-        ></textarea>
-      </form>
+        <form
+          @submit.prevent="submitForm"
+          data-botpoison-public-key="pk_fe43b230-e893-4d80-9009-d5d1b91fd595"
+          class="form-1"
+          id="contact-form"
+          :class="{ loading: contactFormLoading }"
+        >
+          <div>
+            <label for="email" class="required">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Your email..."
+              required
+              v-model="email"
+              class="input-1"
+            />
+          </div>
+
+          <div>
+            <label for="message" class="required">Message</label>
+            <textarea
+              name="message"
+              id="message"
+              rows="12"
+              placeholder="Write me something..."
+              required
+              v-model="message"
+              class="textarea-1"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="button-1" v-if="!contactFormLoading">Send</button>
+          <button class="button-1" v-else>Sending...</button>
+        </form>
+      </div>
     </section>
   </main>
 </template>
@@ -123,8 +189,10 @@ main::-webkit-scrollbar{
 } */
 
 /* HERO / HOME */
-#home {
+#home > .wrapper {
   gap: 0;
+  align-items: center;
+  text-align: center;
 }
 
 h3 {
@@ -160,7 +228,7 @@ h3 {
   /* align-items: start; */
 }
 
-.tools-wrapper {
+#tools .tools-wrapper {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
@@ -197,4 +265,43 @@ h3 {
   --color-text: var(--blue--lighter);
   --color-text--dark: var(--blue--lighter60);
 }
+
+.examples {
+  width: 100%;
+  max-width: 700px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+  gap: 1.5rem;
+}
+
+.example {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 12px;
+
+  background-color: var(--blue--dark);
+
+  padding-bottom: 1rem;
+}
+
+.example__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  padding: 0.75rem;
+}
+
+.example__content .tools-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.5rem;
+
+  margin-top: 0.25rem;
+}
+
+/* contact */
 </style>

@@ -12,41 +12,51 @@ export default {
 
 <template>
   <header>
-    <RouterLink to="/">
-      <img alt="My logo" src="@/assets/logo.svg" width="32" height="32" />
-    </RouterLink>
+    <div class="wrapper">
+      <RouterLink to="/">
+        <img alt="My logo" src="@/assets/logo.svg" width="32" height="32" />
+      </RouterLink>
 
-    <button id="hamburger-menu__button" @click="menuActive = !menuActive">
-      <img alt="Hamburger menu" src="@/assets/HamburgerMenu.svg" width="32" height="32" />
-    </button>
+      <button id="hamburger-menu__button" @click="menuActive = !menuActive">
+        <img alt="Hamburger menu" src="@/assets/HamburgerMenu.svg" width="32" height="32" />
+      </button>
 
-    <nav id="nav-menu" :class="{ active: menuActive, close: menuActive == false }">
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/#tools">Tools</RouterLink>
-      <RouterLink to="/#portfolio">Portfolio</RouterLink>
-      <RouterLink to="/#contact">Contact</RouterLink>
-    </nav>
+      <nav id="nav-menu" :class="{ active: menuActive, close: menuActive == false }">
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/#tools">Tools</RouterLink>
+        <RouterLink to="/#portfolio">Portfolio</RouterLink>
+        <RouterLink to="/#contact">Contact</RouterLink>
+      </nav>
+    </div>
   </header>
 
   <RouterView />
 
   <footer>
-    <p>Copyright© {{ new Date().getFullYear() }} Anton Lehrberg All Rights Reserved</p>
+    <div class="wrapper">
+      <p>Copyright© {{ new Date().getFullYear() }} Anton Lehrberg All Rights Reserved</p>
+    </div>
   </footer>
 </template>
 
 <style scoped>
 header {
-  position: fixed;
+  position: absolute;
 
   width: 100%;
-
-  display: flex;
-  justify-content: space-between;
 
   padding: 32px var(--horizontal--padding);
 
   z-index: 2;
+}
+header > .wrapper {
+  width: 100%;
+  max-width: var(--site-max-width);
+
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
 }
 
 #hamburger-menu__button {
@@ -61,11 +71,11 @@ header {
   flex-direction: column;
   gap: 1rem;
 
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
 
-  width: 100vw;
+  width: 100%;
 
   padding: 50px 20px;
 
@@ -109,13 +119,23 @@ header {
 
 /* FOOTER */
 footer {
+  width: 100%;
+
   padding: 50px var(--horizontal--padding);
 
-  text-align: center;
+  /* text-align: center; */
 
   --color-text: var(--green-yellow--darker);
   color: var(--color-text);
+  font-size: .8rem;
 
   scroll-snap-align: start;
+}
+
+footer > .wrapper {
+  width: 100%;
+  max-width: var(--site-max-width);
+
+  margin: 0 auto;
 }
 </style>

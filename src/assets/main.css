@@ -28,7 +28,7 @@ a {
 
 @media (hover: hover) {
   a:hover {
-    color: hsla(0, 0%, 100%, 0.2);
+    color: hsla(0, 0%, 100%, 0.7);
   }
 }
 
@@ -74,20 +74,144 @@ h4 {
   text-shadow: 0px 1px 1px var(--color-text--dark);
 }
 
+/* FORMS */
+.form-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.form-1.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* INPUTS */
+.input-1,
+.textarea-1 {
+  width: 100%;
+  max-width: 500px;
+
+  padding: 0.6em 0.75em;
+
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+
+  border: none;
+
+  background: var(--color-text);
+  color: var(--black);
+
+  box-shadow: 0px 3px 0px var(--color-text--dark);
+  border-radius: 15px;
+}
+.input-1::placeholder,
+.textarea-1::placeholder {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+
+  color: var(--blue--dark60);
+}
+
+.textarea-1 {
+  resize: none;
+  line-height: 1.5;
+}
+
+/* LABELS */
+label {
+  display: block;
+  font-size: 0.8rem;
+}
+
+label.required:after {
+  content: '*';
+  color: red;
+}
+
+/* BUTTONS */
+.button-1 {
+  width: 100%;
+  max-width: 500px;
+
+  padding: 0.6em 0.75em;
+
+  font-weight: 700;
+  font-size: 1.25rem;
+
+  border: none;
+
+  background: var(--color-text);
+  color: var(--black);
+
+  box-shadow: 0px 3px 0px var(--color-text--dark);
+  border-radius: 15px;
+
+  transition: all 0.1s ease-in-out;
+}
+.button-1:active {
+  transform: translateY(3px);
+  box-shadow: 0px 0px 0px var(--color-text--dark);
+}
+
+/* code */
+.code--form {
+  hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  word-break: break-word;
+  -ms-word-break: break-all;
+  word-wrap: break-word;
+
+  padding: 1rem 2.6rem;
+
+  border-radius: 8px;
+
+  background-color: var(--blue--darker);
+}
+.code--form::before,
+.code--form::after {
+  content: '<your-input>';
+  font-weight: bold;
+
+  display: block;
+  transform: translateX(-1.2rem);
+}
+.code--form::after {
+  content: '</your-input>';
+}
+
+.code__title {
+  font-weight: bold;
+  font-size: 0.7em;
+}
+
 /* SECTIONS */
 section {
   min-height: 100vh;
+
+  padding: var(--vertical--padding) var(--horizontal--padding);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--color-background);
+  color: var(--color-text);
+
+  scroll-snap-align: start;
+}
+
+section > .wrapper {
+  width: 100%;
+  max-width: var(--site-max-width);
+
+  margin: 0 auto;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   /* align-items: center; */
   gap: 1.5rem;
-
-  padding: var(--vertical--padding) var(--horizontal--padding);
-
-  background-color: var(--color-background);
-  color: var(--color-text);
-
-  scroll-snap-align: start;
 }
