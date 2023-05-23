@@ -2,13 +2,22 @@
 export default {
   data() {
     return {
-      menuActive: null
+      menuActive: null,
+
+      trail: null,
+      trailRadius: null,
+      trailSpeed: 0.05,
+      trailPos: { x: 0, y: 0 }
     }
   },
   watch: {
     $route(to, from) {
       this.menuActive = false
     }
+  },
+
+  mounted() {
+    this.initMouseTrail()
   },
 
   methods: {
@@ -18,6 +27,32 @@ export default {
       if (e.target != nav) {
         this.menuActive = false
       }
+    },
+
+    initMouseTrail() {
+      this.trail = document.getElementById('header-mouse-trail')
+      this.trailRadius = this.trail.offsetWidth / 2
+
+      window.addEventListener('mousemove', this.mouseMove)
+
+      this.moveElement()
+    },
+
+    mouseMove(event) {
+      this.trailPos = { x: event.clientX, y: event.clientY }
+    },
+
+    moveElement() {
+      const targetX = this.trailPos.x - this.trailRadius
+      const targetY = this.trailPos.y - this.trailRadius
+
+      const dx = targetX - this.trail.offsetLeft
+      const dy = targetY - this.trail.offsetTop
+
+      this.trail.style.left = dx * this.trailSpeed + this.trail.offsetLeft + 'px'
+      this.trail.style.top = dy * this.trailSpeed + this.trail.offsetTop + 'px'
+
+      requestAnimationFrame(this.moveElement)
     }
   }
 }
@@ -46,6 +81,8 @@ export default {
             <RouterLink to="/#portfolio">Portfolio</RouterLink>
             <RouterLink to="/#contact">Contact</RouterLink>
           </div>
+
+          <div id="header-mouse-trail"></div>
         </nav>
       </div>
     </div>
@@ -53,6 +90,24 @@ export default {
 </template>
 
 <style scoped>
+#header-mouse-trail {
+  position: absolute;
+
+  width: 250%;
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  z-index: -1;
+
+  background: radial-gradient(
+    var(--blue--light),
+    var(--blue--lighter),
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0)
+  );
+}
+
 header {
   position: fixed;
 
@@ -100,6 +155,8 @@ header > .wrapper {
   background-color: rgba(0, 0, 0, 0.6);
 }
 #nav-menu > nav {
+  overflow: hidden;
+
   width: 100%;
 
   padding: 100px var(--horizontal--padding) 50px;

@@ -63,7 +63,7 @@ body {
 ::-webkit-scrollbar-track {
   background: gainsboro;
   border-radius: 5px;
-  margin: 5px 0;
+  margin: 1px 0;
 }
 
 /* Handle */
