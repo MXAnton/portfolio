@@ -1,34 +1,17 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
 
+import HeaderComp from './components/HeaderComp.vue'
+
 export default {
-  data() {
-    return {
-      menuActive: null
-    }
+  components: {
+    HeaderComp
   }
 }
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <RouterLink to="/">
-        <img alt="My logo" src="@/assets/logo.svg" width="32" height="32" />
-      </RouterLink>
-
-      <button id="hamburger-menu__button" @click="menuActive = !menuActive">
-        <img alt="Hamburger menu" src="@/assets/HamburgerMenu.svg" width="32" height="32" />
-      </button>
-
-      <nav id="nav-menu" :class="{ active: menuActive, close: menuActive == false }">
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/#tools">Tools</RouterLink>
-        <RouterLink to="/#portfolio">Portfolio</RouterLink>
-        <RouterLink to="/#contact">Contact</RouterLink>
-      </nav>
-    </div>
-  </header>
+  <HeaderComp />
 
   <RouterView />
 
@@ -40,83 +23,6 @@ export default {
 </template>
 
 <style scoped>
-header {
-  position: absolute;
-
-  width: 100%;
-
-  padding: 32px var(--horizontal--padding);
-
-  z-index: 2;
-}
-header > .wrapper {
-  width: 100%;
-  max-width: var(--site-max-width);
-
-  margin: 0 auto;
-
-  display: flex;
-  justify-content: space-between;
-}
-
-#hamburger-menu__button {
-  border: none;
-  background: none;
-
-  z-index: 2;
-}
-
-#nav-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-
-  padding: 50px 20px;
-
-  background-color: var(--blue--lighter);
-
-  transform-origin: top;
-}
-#nav-menu:not(.close) {
-  transform: scaleY(0) translateY(-20%);
-  opacity: 0;
-}
-#nav-menu.close {
-  animation: nav-menu-fadeout 0.2s forwards ease-in-out;
-}
-#nav-menu.active {
-  animation: nav-menu-fadein 0.2s forwards ease-in-out;
-}
-@keyframes nav-menu-fadein {
-  from {
-    transform: scaleY(0) translateY(-20%);
-    opacity: 0;
-  }
-  to {
-    transform: scaleY(1) translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes nav-menu-fadeout {
-  from {
-    transform: scaleY(1) translateY(0);
-  }
-  to {
-    transform: scaleY(0) translateY(-20%);
-    opacity: 0;
-  }
-}
-
-#nav-menu > a {
-  color: var(--black);
-}
-
 /* FOOTER */
 footer {
   width: 100%;
@@ -127,7 +33,7 @@ footer {
 
   --color-text: var(--green-yellow--darker);
   color: var(--color-text);
-  font-size: .8rem;
+  font-size: 0.8rem;
 
   scroll-snap-align: start;
 }
