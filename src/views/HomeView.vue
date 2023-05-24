@@ -54,12 +54,30 @@ export default {
   <main>
     <section id="home">
       <div class="wrapper">
-        <h1>ANTON LEHRBERG</h1>
-        <h3>FULL STACK DEVELOPER</h3>
-        <span class="from-country"
-          ><h4>from</h4>
-          <h4 class="from-country__country">SWEDEN</h4></span
-        >
+        <h1 class="flip-on-hover">
+          <div v-for="letter in 'ANTON LEHRBERG'">
+            <div>{{ letter }}</div>
+          </div>
+        </h1>
+
+        <h3 class="flip-on-hover">
+          <div v-for="letter in 'FULL STACK DEVELOPER'">
+            <div>{{ letter }}</div>
+          </div>
+        </h3>
+
+        <span class="from-country">
+          <h4 class="flip-on-hover">
+            <div v-for="letter in 'from'">
+              <div>{{ letter }}</div>
+            </div>
+          </h4>
+          <h4 class="from-country__country flip-on-hover">
+            <div v-for="letter in 'SWEDEN'">
+              <div>{{ letter }}</div>
+            </div>
+          </h4>
+        </span>
       </div>
 
       <RouterLink to="/#tools" class="call-to-action--scroll">
@@ -191,6 +209,43 @@ export default {
 </template>
 
 <style scoped>
+.flip-on-hover {
+  display: flex;
+
+  cursor: default;
+}
+.flip-on-hover > div {
+  width: 0.65em;
+  height: 1.1em;
+}
+
+.flip-on-hover > div > div {
+  font-weight: bold;
+
+  transform-origin: center bottom;
+  transition: all 0.2s ease-in-out;
+
+  animation: 1s ease-out 0s scale-reverse;
+}
+@keyframes scale-reverse {
+  0% {
+    transform: scale(-1, 0);
+    font-weight: 100;
+  }
+  80% {
+    transform: scale(-1, 0);
+    font-weight: 100;
+  }
+  100% {
+    transform: scale(1, 1);
+    font-weight: bold;
+  }
+}
+.flip-on-hover > div:hover > div {
+  transform: scale(-1, 1);
+  font-weight: 100;
+}
+
 /* main {
   max-height: 100vh;
   overflow-y: scroll;
