@@ -217,6 +217,31 @@ label.required:after {
   font-size: 0.7em;
 }
 
+/* CALL TO ACTION */
+.call-to-action--scroll {
+  position: absolute;
+  bottom: 110px;
+
+  animation: float-down 3s infinite ease-in-out;
+}
+@keyframes float-down {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  30% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(80%) scale(.9);
+  }
+  60% {
+    transform: translateY(80%) scale(.9);
+  }
+  80% {
+    transform: translateY(0) scale(1);
+  }
+}
+
 /* SECTIONS */
 section {
   min-height: 100vh;

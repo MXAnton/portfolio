@@ -61,6 +61,10 @@ export default {
         >
       </div>
 
+      <a href="#tools" class="call-to-action--scroll">
+        <img src="@/assets/down-arrow.svg" alt="Down arrow">
+      </a>
+
       <MouseTrailComp uniqueId="mouse-trail--home" />
     </section>
 

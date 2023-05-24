@@ -31,6 +31,8 @@
   --vertical--padding: 100px;
 
   --site-max-width: 700px;
+
+  scroll-behavior: smooth;
 }
 
 *,
@@ -52,7 +54,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 
 /* Designing for scroll-bar */
 ::-webkit-scrollbar {
