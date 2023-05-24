@@ -36,8 +36,8 @@ button {
   cursor: pointer;
 }
 
-button img,
-a img {
+img,
+svg {
   display: block;
 }
 

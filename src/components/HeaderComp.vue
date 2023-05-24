@@ -1,9 +1,13 @@
 <script>
+import HamburgerMenuIcon from './icons/HamburgerMenuIcon.vue'
+
 export default {
+  components: {
+    HamburgerMenuIcon
+  },
   data() {
     return {
       menuActive: null,
-
       trail: null,
       trailRadius: null,
       trailSpeed: 0.05,
@@ -19,39 +23,29 @@ export default {
   mounted() {
     this.initMouseTrail()
   },
-
   methods: {
     navMenuPressed(e) {
       const nav = document.getElementById('nav-menu').querySelector('nav')
-
       if (e.target != nav) {
         this.menuActive = false
       }
     },
-
     initMouseTrail() {
       this.trail = document.getElementById('header-mouse-trail')
       this.trailRadius = this.trail.offsetWidth / 2
-
       window.addEventListener('mousemove', this.mouseMove)
-
       this.moveElement()
     },
-
     mouseMove(event) {
       this.trailPos = { x: event.clientX, y: event.clientY }
     },
-
     moveElement() {
       const targetX = this.trailPos.x - this.trailRadius
       const targetY = this.trailPos.y - this.trailRadius
-
       const dx = targetX - this.trail.offsetLeft
       const dy = targetY - this.trail.offsetTop
-
       this.trail.style.left = dx * this.trailSpeed + this.trail.offsetLeft + 'px'
       this.trail.style.top = dy * this.trailSpeed + this.trail.offsetTop + 'px'
-
       requestAnimationFrame(this.moveElement)
     }
   }
@@ -66,7 +60,7 @@ export default {
       </RouterLink>
 
       <button id="hamburger-menu__button" class="button-2" @click="menuActive = !menuActive">
-        <img alt="Hamburger menu" src="@/assets/HamburgerMenu.svg" width="32" height="32" />
+        <HamburgerMenuIcon :menuActive="menuActive" />
       </button>
 
       <div
