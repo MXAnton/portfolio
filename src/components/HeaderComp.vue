@@ -6,15 +6,15 @@ export default {
   components: {
     HamburgerMenuIcon,
     MouseTrailComp
-},
+  },
   data() {
     return {
-      menuActive: null,
+      menuActive: null
     }
   },
   watch: {
     $route(to, from) {
-      this.menuActive = false
+      this.menuActive = null
     }
   },
 
@@ -24,7 +24,7 @@ export default {
       if (e.target != nav) {
         this.menuActive = false
       }
-    },
+    }
   }
 }
 </script>
@@ -165,5 +165,18 @@ header > .wrapper {
 #nav-menu:has(a:hover) a:hover {
   transform: translateX(0.3em);
   opacity: 1;
+}
+
+/* media queries */
+@media only screen and (min-width: 899px) {
+  header > .wrapper {
+    max-width: calc(var(--site-max-width) + 64px + 42px);
+  }
+}
+
+@media only screen and (min-width: 1099px) {
+  header > .wrapper {
+    max-width: calc(var(--site-max-width) + 64px + 124px);
+  }
 }
 </style>

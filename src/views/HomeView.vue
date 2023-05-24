@@ -94,7 +94,7 @@ export default {
 
     <section id="portfolio">
       <div class="wrapper">
-        <h2>PORTFOLIO</h2>
+        <h2>PORTFOLIO<span class="small">:</span></h2>
         <p>I have made several websites, of which many are in professional use as you read this.</p>
 
         <div class="examples">
@@ -122,31 +122,31 @@ export default {
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="example">
-          <img src="/images/showcase-mhfothem.jpg" alt="Display of homepage of site" />
+          <div class="example">
+            <img src="/images/showcase-mhfothem.jpg" alt="Display of homepage of site" />
 
-          <div class="example__content">
-            <a
-              href="https://www.mhfothem.se/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="link-1"
-              >mhfothem.se</a
-            >
-            <p>
-              Motocross association that gives everyone the opportunity to ride motocross, with main
-              focus on children.
-            </p>
+            <div class="example__content">
+              <a
+                href="https://www.mhfothem.se/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="link-1"
+                >mhfothem.se</a
+              >
+              <p>
+                Motocross association that gives everyone the opportunity to ride motocross, with
+                main focus on children.
+              </p>
 
-            <div class="tools-wrapper">
-              <div class="tool--small">HTML</div>
-              <div class="tool--small">CSS</div>
-              <div class="tool--small">JS</div>
-              <div class="tool--small">Vue.js</div>
-              <div class="tool--small">Google Firestore & Auth</div>
-              <div class="tool--small">Figma</div>
+              <div class="tools-wrapper">
+                <div class="tool--small">HTML</div>
+                <div class="tool--small">CSS</div>
+                <div class="tool--small">JS</div>
+                <div class="tool--small">Vue.js</div>
+                <div class="tool--small">Google Firestore & Auth</div>
+                <div class="tool--small">Figma</div>
+              </div>
             </div>
           </div>
         </div>
@@ -157,7 +157,7 @@ export default {
 
     <section id="contact">
       <div class="wrapper">
-        <h2>HIT ME UP</h2>
+        <h2>HIT ME UP<span class="small">:</span></h2>
 
         <form
           @submit.prevent="submitForm"
