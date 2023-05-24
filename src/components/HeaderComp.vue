@@ -1,17 +1,15 @@
 <script>
+import MouseTrailComp from './MouseTrailComp.vue'
 import HamburgerMenuIcon from './icons/HamburgerMenuIcon.vue'
 
 export default {
   components: {
-    HamburgerMenuIcon
-  },
+    HamburgerMenuIcon,
+    MouseTrailComp
+},
   data() {
     return {
       menuActive: null,
-      trail: null,
-      trailRadius: null,
-      trailSpeed: 0.05,
-      trailPos: { x: 0, y: 0 }
     }
   },
   watch: {
@@ -20,9 +18,6 @@ export default {
     }
   },
 
-  mounted() {
-    this.initMouseTrail()
-  },
   methods: {
     navMenuPressed(e) {
       const nav = document.getElementById('nav-menu').querySelector('nav')
@@ -30,24 +25,6 @@ export default {
         this.menuActive = false
       }
     },
-    initMouseTrail() {
-      this.trail = document.getElementById('header-mouse-trail')
-      this.trailRadius = this.trail.offsetWidth / 2
-      window.addEventListener('mousemove', this.mouseMove)
-      this.moveElement()
-    },
-    mouseMove(event) {
-      this.trailPos = { x: event.clientX, y: event.clientY }
-    },
-    moveElement() {
-      const targetX = this.trailPos.x - this.trailRadius
-      const targetY = this.trailPos.y - this.trailRadius
-      const dx = targetX - this.trail.offsetLeft
-      const dy = targetY - this.trail.offsetTop
-      this.trail.style.left = dx * this.trailSpeed + this.trail.offsetLeft + 'px'
-      this.trail.style.top = dy * this.trailSpeed + this.trail.offsetTop + 'px'
-      requestAnimationFrame(this.moveElement)
-    }
   }
 }
 </script>
@@ -76,7 +53,7 @@ export default {
             <RouterLink to="/#contact">Contact</RouterLink>
           </div>
 
-          <div id="header-mouse-trail"></div>
+          <MouseTrailComp />
         </nav>
       </div>
     </div>
@@ -84,25 +61,6 @@ export default {
 </template>
 
 <style scoped>
-/* MOUSE TRAIL */
-#header-mouse-trail {
-  position: absolute;
-
-  width: 250%;
-  aspect-ratio: 1;
-
-  border-radius: 50%;
-
-  z-index: -1;
-
-  background: radial-gradient(
-    var(--blue--light),
-    var(--blue--lighter),
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0)
-  );
-}
-
 /* HEADER */
 header {
   position: fixed;
