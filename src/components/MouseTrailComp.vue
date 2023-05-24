@@ -21,8 +21,14 @@ export default {
     initMouseTrail() {
       this.trail = document.getElementById(this.uniqueId)
       this.trailRadius = this.trail.offsetWidth / 2
+      this.trailPos = {
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 2
+      }
+
       window.addEventListener('mousemove', this.mouseMove)
       window.addEventListener('scroll', this.scrollMove)
+
       this.moveElement()
     },
 
