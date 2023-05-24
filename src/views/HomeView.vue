@@ -6,9 +6,10 @@ import axios from 'axios'
 import Botpoison from '@botpoison/browser'
 
 import MouseTrailComp from '../components/MouseTrailComp.vue'
+import ExampleComp from '../components/ExampleComp.vue'
 
 export default {
-  components: { MouseTrailComp },
+  components: { MouseTrailComp, ExampleComp },
   data() {
     return {
       botpoison: null,
@@ -61,9 +62,9 @@ export default {
         >
       </div>
 
-      <a href="#tools" class="call-to-action--scroll">
-        <img src="@/assets/down-arrow.svg" alt="Down arrow">
-      </a>
+      <RouterLink to="/#tools" class="call-to-action--scroll">
+        <img src="@/assets/down-arrow.svg" alt="Down arrow" />
+      </RouterLink>
 
       <MouseTrailComp uniqueId="mouse-trail--home" />
     </section>
@@ -102,57 +103,42 @@ export default {
         <p>I have made several websites, of which many are in professional use as you read this.</p>
 
         <div class="examples">
-          <div class="example">
+          <ExampleComp
+            name="calmprofessor.se"
+            link="https://www.calmprofessor.se/"
+            description="Take quick online courses where ever you are!"
+            tools="HTML,CSS,JS,Vue.js,Node.js,Express.js,SQL"
+          >
+            <img src="/images/showcase-calmprofessor.jpg" alt="Display of homepage of site"
+          /></ExampleComp>
+
+          <ExampleComp
+            name="mhfothem.se"
+            link="https://www.mhfothem.se/"
+            description="Motocross association that gives everyone the opportunity to ride motocross, with
+                main focus on children."
+            tools="HTML,CSS,JS,Vue.js,Google Firestore & Auth,Figma"
+          >
             <img src="/images/showcase-mhfothem.jpg" alt="Display of homepage of site" />
+          </ExampleComp>
 
-            <div class="example__content">
-              <a
-                href="https://www.calmprofessor.se/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="link-1"
-                >calmprofessor.se</a
-              >
-              <p>Take quick online courses where ever you are!</p>
+          <ExampleComp
+            name="gamifiera.com"
+            link="https://www.gamifiera.com/"
+            description="Gamifiera® offers a one stop solution for your e-commerce and omnichannel gamification and social platform needs."
+            tools="HTML,CSS,JS,Vue.js"
+          >
+            <img src="/images/showcase-gamifiera.jpg" alt="Display of homepage of site" />
+          </ExampleComp>
 
-              <div class="tools-wrapper">
-                <div class="tool--small">HTML</div>
-                <div class="tool--small">CSS</div>
-                <div class="tool--small">JS</div>
-                <div class="tool--small">Vue.js</div>
-                <div class="tool--small">Node.js</div>
-                <div class="tool--small">Express.js</div>
-                <div class="tool--small">SQL</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="example">
-            <img src="/images/showcase-mhfothem.jpg" alt="Display of homepage of site" />
-
-            <div class="example__content">
-              <a
-                href="https://www.mhfothem.se/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="link-1"
-                >mhfothem.se</a
-              >
-              <p>
-                Motocross association that gives everyone the opportunity to ride motocross, with
-                main focus on children.
-              </p>
-
-              <div class="tools-wrapper">
-                <div class="tool--small">HTML</div>
-                <div class="tool--small">CSS</div>
-                <div class="tool--small">JS</div>
-                <div class="tool--small">Vue.js</div>
-                <div class="tool--small">Google Firestore & Auth</div>
-                <div class="tool--small">Figma</div>
-              </div>
-            </div>
-          </div>
+          <ExampleComp
+            name="delari3d.se"
+            link="https://www.delari3d.se/"
+            description="Web store where you can by 3D-printed objects."
+            tools="HTML,CSS,JS,Vue.js,Node.js,Express.js,SQL,Figma"
+          >
+            <img src="/images/showcase-delari3d.jpg" alt="Display of homepage of site" />
+          </ExampleComp>
         </div>
       </div>
 
@@ -265,26 +251,6 @@ h3 {
   gap: 0.5rem;
 }
 
-.tool--big,
-.tool--small {
-  background-color: var(--blue--light);
-  color: var(--black);
-
-  box-shadow: 0px 3px 0px var(--blue--lighter60);
-
-  border-radius: 22px;
-
-  padding: 0.5rem 1.25em;
-
-  font-size: 1rem;
-}
-
-.tool--small {
-  padding: 0.33em 1em;
-
-  font-size: 0.75rem;
-}
-
 /* portfolio */
 #portfolio {
   --color-background: var(--blue);
@@ -297,40 +263,21 @@ h3 {
   max-width: 700px;
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: 1fr;
 
   gap: 1.5rem;
-}
-
-.example {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  border-radius: 12px;
-
-  background-color: var(--blue--dark);
-
-  padding-bottom: 1rem;
-}
-
-.example__content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-
-  padding: 0.75rem;
-}
-
-.example__content .tools-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem 0.5rem;
-
-  margin-top: 0.25rem;
 }
 
 /* contact */
 #contact {
   --color-background: none;
+}
+
+/* MEDIA QUERIES */
+@media only screen and (min-width: 699px) {
+  .examples {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 </style>
