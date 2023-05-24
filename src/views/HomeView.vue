@@ -5,29 +5,27 @@ const BOTPOISON_PUBLIC_KEY = 'pk_fe43b230-e893-4d80-9009-d5d1b91fd595'
 import axios from 'axios'
 import Botpoison from '@botpoison/browser'
 
+import MouseTrailComp from '../components/MouseTrailComp.vue'
+
 export default {
+  components: { MouseTrailComp },
   data() {
     return {
       botpoison: null,
-
       email: '',
       message: '',
-
       contactFormLoading: false
     }
   },
-
   created() {
     // 2. Create a new instance with your public key
     this.botpoison = new Botpoison({
       publicKey: BOTPOISON_PUBLIC_KEY
     })
   },
-
   methods: {
     async submitForm() {
       this.contactFormLoading = true
-
       try {
         // 3. Process a challenge
         const { solution } = await this.botpoison.challenge()
@@ -37,7 +35,6 @@ export default {
           // 4. Forward the solution
           _botpoison: solution
         })
-
         console.log('Form submitted')
         this.$router.push({ path: '/thanks', query: { email: this.email, message: this.message } })
       } catch (error) {
@@ -63,6 +60,8 @@ export default {
           <h4 class="from-country__country">SWEDEN</h4></span
         >
       </div>
+
+      <MouseTrailComp uniqueId="mouse-trail--home" />
     </section>
 
     <section id="tools">
@@ -89,6 +88,8 @@ export default {
           </div>
         </div>
       </div>
+
+      <MouseTrailComp uniqueId="mouse-trail--tools" />
     </section>
 
     <section id="portfolio">
@@ -150,6 +151,8 @@ export default {
           </div>
         </div>
       </div>
+
+      <MouseTrailComp uniqueId="mouse-trail--portfolio" />
     </section>
 
     <section id="contact">
@@ -192,6 +195,7 @@ export default {
           <button class="button-1" disabled v-else>Sending...</button>
         </form>
       </div>
+      <MouseTrailComp uniqueId="mouse-trail--contact" />
     </section>
   </main>
 </template>
@@ -322,4 +326,7 @@ h3 {
 }
 
 /* contact */
+#contact {
+  --color-background: none;
+}
 </style>

@@ -53,7 +53,7 @@ export default {
             <RouterLink to="/#contact">Contact</RouterLink>
           </div>
 
-          <MouseTrailComp />
+          <MouseTrailComp uniqueId="mouse-trail--header" />
         </nav>
       </div>
     </div>

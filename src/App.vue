@@ -2,10 +2,12 @@
 import { RouterLink, RouterView } from 'vue-router'
 
 import HeaderComp from './components/HeaderComp.vue'
+import MouseTrailComp from './components/MouseTrailComp.vue'
 
 export default {
   components: {
-    HeaderComp
+    HeaderComp,
+    MouseTrailComp
   }
 }
 </script>
@@ -19,6 +21,8 @@ export default {
     <div class="wrapper">
       <p>Copyright© {{ new Date().getFullYear() }} Anton Lehrberg All Rights Reserved</p>
     </div>
+
+    <MouseTrailComp uniqueId="mouse-trail--footer" />
   </footer>
 </template>
 
@@ -36,6 +40,10 @@ footer {
   font-size: 0.8rem;
 
   scroll-snap-align: start;
+
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
 footer > .wrapper {

@@ -217,6 +217,10 @@ section {
   color: var(--color-text);
 
   scroll-snap-align: start;
+
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
 section > .wrapper {
