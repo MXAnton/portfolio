@@ -76,6 +76,7 @@ export default {
             <div class="tool--big">JS</div>
           </div>
           <div class="tools__row">
+            <div class="tool--big">GSAP</div>
             <div class="tool--big">Vue.js</div>
             <div class="tool--big">Node.js</div>
           </div>
@@ -85,7 +86,6 @@ export default {
           </div>
           <div class="tools__row">
             <div class="tool--big">Figma</div>
-            <div class="tool--big">Git</div>
           </div>
         </div>
       </div>

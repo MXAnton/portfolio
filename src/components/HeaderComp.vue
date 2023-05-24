@@ -61,11 +61,11 @@ export default {
 <template>
   <header>
     <div class="wrapper">
-      <RouterLink to="/#home" id="logo">
+      <RouterLink to="/#home" id="logo" class="button-2">
         <img alt="My logo" src="@/assets/logo.svg" width="32" height="32" />
       </RouterLink>
 
-      <button id="hamburger-menu__button" @click="menuActive = !menuActive">
+      <button id="hamburger-menu__button" class="button-2" @click="menuActive = !menuActive">
         <img alt="Hamburger menu" src="@/assets/HamburgerMenu.svg" width="32" height="32" />
       </button>
 
@@ -90,6 +90,7 @@ export default {
 </template>
 
 <style scoped>
+/* MOUSE TRAIL */
 #header-mouse-trail {
   position: absolute;
 
@@ -108,6 +109,7 @@ export default {
   );
 }
 
+/* HEADER */
 header {
   position: fixed;
 
@@ -127,17 +129,12 @@ header > .wrapper {
   justify-content: space-between;
 }
 
-#logo {
-  z-index: 2;
-}
-
+#logo,
 #hamburger-menu__button {
-  border: none;
-  background: none;
-
   z-index: 2;
 }
 
+/* NAV MENU */
 #nav-menu {
   position: absolute;
   top: 0;
