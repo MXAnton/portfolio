@@ -80,6 +80,25 @@ export default {
     rgba(255, 255, 255, 0),
     rgba(255, 255, 255, 0)
   );
+
+  animation: mouse-trail-breathe 4s infinite ease-in-out;
+}
+@keyframes mouse-trail-breathe {
+  0% {
+    transform: scaleX(1) scaleY(1) translateX(0%) translateY(0%);
+  }
+  20% {
+    transform: scaleX(.9) scaleY(1.2) translateX(2%) translateY(-1%);
+  }
+  50% {
+    transform: scaleX(1.2) scaleY(1) translateX(1%) translateY(1%);
+  }
+  75% {
+    transform: scaleX(1.1) scaleY(1.1) translateX(-2%) translateY(-1%);
+  }
+  100% {
+    transform: scaleX(1) scaleY(1) translateX(0%) translateY(0%);
+  }
 }
 
 /* Different styling */
