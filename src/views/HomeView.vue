@@ -55,26 +55,34 @@ export default {
     <section id="home">
       <div class="wrapper">
         <h1 class="flip-on-hover">
-          <div v-for="letter in 'ANTON LEHRBERG'">
-            <div>{{ letter }}</div>
+          <div v-for="word in 'ANTON LEHRBERG'.split(' ')" class="flip-on-hover__word">
+            <div v-for="letter in word" class="flip-on-hover__letter">
+              <div>{{ letter }}</div>
+            </div>
           </div>
         </h1>
 
         <h3 class="flip-on-hover">
-          <div v-for="letter in 'FULL STACK DEVELOPER'">
-            <div>{{ letter }}</div>
+          <div v-for="word in 'FULL STACK DEVELOPER'.split(' ')" class="flip-on-hover__word">
+            <div v-for="letter in word" class="flip-on-hover__letter">
+              <div>{{ letter }}</div>
+            </div>
           </div>
         </h3>
 
         <span class="from-country">
           <h4 class="flip-on-hover">
-            <div v-for="letter in 'from'">
-              <div>{{ letter }}</div>
+            <div class="flip-on-hover__word">
+              <div v-for="letter in 'from'" class="flip-on-hover__letter">
+                <div>{{ letter }}</div>
+              </div>
             </div>
           </h4>
           <h4 class="from-country__country flip-on-hover">
-            <div v-for="letter in 'SWEDEN'">
-              <div>{{ letter }}</div>
+            <div class="flip-on-hover__word">
+              <div v-for="letter in 'SWEDEN'" class="flip-on-hover__letter">
+                <div>{{ letter }}</div>
+              </div>
             </div>
           </h4>
         </span>
@@ -128,7 +136,7 @@ export default {
           <ExampleComp
             name="calmprofessor.se"
             link="https://www.calmprofessor.se/"
-            description="Take quick online courses where ever you are!"
+            description="Take quick interactive lessons where ever you are!"
             tools="HTML,CSS,JS,Vue.js,Node.js,Express.js,SQL"
           >
             <img src="/images/showcase-calmprofessor.jpg" alt="Display of homepage of site"
@@ -215,15 +223,20 @@ export default {
 <style scoped>
 .flip-on-hover {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 0.6em;
 
   cursor: default;
 }
-.flip-on-hover > div {
-  width: 0.65em;
-  height: 1.1em;
+.flip-on-hover__word {
+  display: flex;
 }
 
-.flip-on-hover > div > div {
+.flip-on-hover__letter > div {
+  width: 0.65em;
+  height: 1.1em;
+
   font-weight: bold;
 
   transform-origin: center bottom;
@@ -245,9 +258,9 @@ export default {
     font-weight: bold;
   }
 }
-.flip-on-hover > div:hover > div {
+.flip-on-hover__letter:hover > div {
   transform: scale(-1, 1);
-  font-weight: 100;
+  /* font-weight: 100; */
 }
 
 /* main {
