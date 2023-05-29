@@ -31,6 +31,10 @@ export default {
   watch: {
     menuActive(to, from) {
       if (this.menuActive) {
+        if (this.tl) {
+          this.tl.progress(0)
+        }
+
         this.tl = gsap
           .timeline({
             defaults: {
@@ -50,7 +54,7 @@ export default {
           .to('#line3', { x: -3, duration: 0.2 }, 0)
       } else if (this.menuActive == false) {
         if (this.tl) {
-          this.tl.reverse()
+          this.tl.progress(1).reverse()
         }
       }
     }
