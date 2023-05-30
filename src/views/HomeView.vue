@@ -49,8 +49,9 @@ export default {
 
       // TOOLS WRAPPER
       const toolRows = document.querySelectorAll('.tools__row')
-      toolRows.forEach((toolRow, y) => {
-        toolRow.querySelectorAll('div').forEach((tool, x) => {
+      let index = 0
+      toolRows.forEach((toolRow) => {
+        toolRow.querySelectorAll('div').forEach((tool) => {
           gsap.from(tool, {
             scrollTrigger: {
               toggleActions: 'restart none pause reverse',
@@ -59,10 +60,12 @@ export default {
             },
             opacity: 0,
             y: 100,
-            duration: 0.5,
-            delay: y * 0.8 + x * 0.3, // Apply the delay based on the index
+            duration: 0.3,
+            delay: index * 0.2, // Apply the delay based on the index
             ease: 'sine'
           })
+
+          index++
         })
       })
 
