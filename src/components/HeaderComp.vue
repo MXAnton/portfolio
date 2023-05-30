@@ -9,7 +9,10 @@ export default {
   },
   data() {
     return {
-      menuActive: null
+      menuActive: null,
+
+      letters: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+      intervals: []
     }
   },
   watch: {
@@ -18,7 +21,81 @@ export default {
     }
   },
 
+  mounted() {
+    this.initNavLinksEffect()
+  },
+
   methods: {
+    initNavLinksEffect() {
+      const nav = document.getElementById('nav-menu').querySelector('nav')
+      const links = nav.querySelectorAll('a')
+
+      links.forEach((link, linkIndex) => {
+        link.dataset.linkIndex = linkIndex
+        link.dataset.linkHoverIndex = linkIndex + links.length
+        link.addEventListener('mouseover', this.doLinkEffect)
+        link.addEventListener('mouseleave', this.doLinkEffectBack)
+      })
+    },
+    doLinkEffect(event) {
+      const linkIndex = event.target.dataset.linkIndex
+      const linkHoverIndex = event.target.dataset.linkHoverIndex
+
+      const hoverValue = event.target.dataset.hovervalue
+      let iteration = 0
+
+      clearInterval(this.intervals[linkIndex])
+      clearInterval(this.intervals[linkHoverIndex])
+
+      this.intervals[linkIndex] = setInterval(() => {
+        event.target.innerText = hoverValue
+          .split('')
+          .map((letter, index) => {
+            if (index < iteration) {
+              return hoverValue[index]
+            }
+
+            return this.letters[Math.floor(Math.random() * 26)]
+          })
+          .join('')
+
+        if (iteration >= hoverValue.length) {
+          clearInterval(this.intervals[linkIndex])
+        }
+
+        iteration += 1 / 3
+      }, 200 / hoverValue.length)
+    },
+    doLinkEffectBack(event) {
+      const linkIndex = event.target.dataset.linkIndex
+      const linkHoverIndex = event.target.dataset.linkHoverIndex
+
+      const value = event.target.dataset.value
+      let iteration = 0
+
+      clearInterval(this.intervals[linkIndex])
+      clearInterval(this.intervals[linkHoverIndex])
+
+      this.intervals[linkHoverIndex] = setInterval(() => {
+        event.target.innerText = value
+          .split('')
+          .map((letter, index) => {
+            if (index < iteration) {
+              return value[index]
+            }
+
+            return this.letters[Math.floor(Math.random() * 26)]
+          })
+          .join('')
+
+        if (iteration >= value.length) {
+          clearInterval(this.intervals[linkHoverIndex])
+        }
+
+        iteration += 1 / 3
+      }, 100 / value.length)
+    },
+
     navMenuPressed(e) {
       const nav = document.getElementById('nav-menu').querySelector('nav')
       if (e.target != nav) {
@@ -47,10 +124,18 @@ export default {
       >
         <nav>
           <div class="wrapper">
-            <RouterLink to="/#home">Home</RouterLink>
-            <RouterLink to="/#tools">Tools</RouterLink>
-            <RouterLink to="/#portfolio">Portfolio</RouterLink>
-            <RouterLink to="/#contact">Contact</RouterLink>
+            <RouterLink to="/#home" data-hovervalue="HOME of page" data-value="HOME"
+              >Home</RouterLink
+            >
+            <RouterLink to="/#tools" data-hovervalue="Main tools" data-value="TOOLS"
+              >Tools</RouterLink
+            >
+            <RouterLink to="/#portfolio" data-hovervalue="MY WORK" data-value="Portfolio"
+              >Portfolio</RouterLink
+            >
+            <RouterLink to="/#contact" data-hovervalue="Hit me up" data-value="conTaCT"
+              >Contact</RouterLink
+            >
           </div>
 
           <MouseTrailComp uniqueId="mouse-trail--header" />
