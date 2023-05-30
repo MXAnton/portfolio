@@ -8,6 +8,10 @@ import Botpoison from '@botpoison/browser'
 import MouseTrailComp from '../components/MouseTrailComp.vue'
 import ExampleComp from '../components/ExampleComp.vue'
 
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
+
 export default {
   components: { MouseTrailComp, ExampleComp },
   data() {
@@ -24,7 +28,148 @@ export default {
       publicKey: BOTPOISON_PUBLIC_KEY
     })
   },
+  mounted() {
+    this.gsapScrollInit()
+  },
+
   methods: {
+    gsapScrollInit() {
+      // HEADERS
+      const headings = document.querySelectorAll('h2')
+      headings.forEach((heading) => {
+        gsap.from(heading, {
+          scrollTrigger: {
+            toggleActions: 'restart none pause reverse',
+            trigger: heading
+          },
+          x: 500,
+          duration: 0.4
+        })
+      })
+
+      // TOOLS WRAPPER
+      const toolRows = document.querySelectorAll('.tools__row')
+      toolRows.forEach((toolRow, y) => {
+        toolRow.querySelectorAll('div').forEach((tool, x) => {
+          gsap.from(tool, {
+            scrollTrigger: {
+              toggleActions: 'restart none pause reverse',
+              trigger: '.tools-wrapper',
+              start: 'top 70%'
+            },
+            opacity: 0,
+            y: 100,
+            duration: 0.5,
+            delay: y * 0.8 + x * 0.3, // Apply the delay based on the index
+            ease: 'sine'
+          })
+        })
+      })
+
+      // SECTIONS PARAGRAPHS
+      const sections = document.querySelectorAll('section')
+      sections.forEach((section) => {
+        section.querySelectorAll('p').forEach((paragraph) => {
+          gsap.from(paragraph, {
+            scrollTrigger: {
+              toggleActions: 'restart none pause reverse',
+              trigger: paragraph,
+              start: 'top bottom'
+            },
+            opacity: 0,
+            y: 100,
+            duration: 0.7,
+            ease: 'sine'
+          })
+        })
+      })
+
+      // PORTFOLIO CARDS
+      const portfolioExamples = document.querySelectorAll('.example')
+      portfolioExamples.forEach((example) => {
+        gsap.from(example, {
+          scrollTrigger: {
+            toggleActions: 'restart none pause reverse',
+            trigger: example,
+            start: '80% bottom'
+          },
+          opacity: 0,
+          x: 100,
+          duration: 0.4,
+          ease: 'sine'
+        })
+        gsap.from(example.querySelector('p'), {
+          scrollTrigger: {
+            toggleActions: 'restart none pause none',
+            trigger: example,
+            start: '80% bottom'
+          },
+          opacity: 0,
+          y: 100,
+          duration: 0.4,
+          ease: 'sine'
+        })
+
+        const exampleToolsWrapper = example.querySelector('.tools-wrapper')
+        const exampleTools = exampleToolsWrapper.querySelectorAll('div')
+        exampleTools.forEach((tool, x) => {
+          gsap.from(tool, {
+            scrollTrigger: {
+              toggleActions: 'restart none pause none',
+              trigger: example,
+              start: '80% bottom'
+            },
+            opacity: 0,
+            x: 100,
+            duration: 0.3,
+            delay: x * 0.2, // Apply the delay based on the index
+            ease: 'sine'
+          })
+        })
+      })
+
+      // HIT ME UP FORM
+      const formInputs = document.querySelector('#contact-form').querySelectorAll('div')
+      formInputs.forEach((formInput) => {
+        gsap.from(formInput, {
+          scrollTrigger: {
+            toggleActions: 'restart none pause reverse',
+            trigger: formInput,
+            start: '80% bottom'
+          },
+          opacity: 0,
+          y: 100,
+          duration: 0.4,
+          ease: 'sine'
+        })
+        gsap.from(formInput.querySelector('label'), {
+          scrollTrigger: {
+            toggleActions: 'restart none pause none',
+            trigger: formInput,
+            start: '80% bottom'
+          },
+          opacity: 0,
+          x: 100,
+          duration: 0.3,
+          delay: 0.3,
+          ease: 'sine'
+        })
+      })
+
+      const formButton = document.querySelector('#contact-form').querySelector('button')
+      gsap.from(formButton, {
+        scrollTrigger: {
+          toggleActions: 'restart none pause reverse',
+          trigger: formButton,
+          start: '80% bottom'
+        },
+        opacity: 0,
+        y: 100,
+        duration: 0.4,
+        ease: 'sine'
+      })
+    },
+
     async submitForm() {
       this.contactFormLoading = true
       try {
@@ -322,6 +467,9 @@ h3 {
   display: flex;
   gap: 0.5rem;
 }
+/* .tools__row > div {
+  opacity: 0;
+} */
 
 /* portfolio */
 #portfolio {
