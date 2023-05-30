@@ -39,7 +39,7 @@ export default {
       headings.forEach((heading) => {
         gsap.from(heading, {
           scrollTrigger: {
-            toggleActions: 'restart none pause reverse',
+            toggleActions: 'restart none none reverse',
             trigger: heading
           },
           x: 500,
@@ -54,7 +54,7 @@ export default {
         toolRow.querySelectorAll('div').forEach((tool) => {
           gsap.from(tool, {
             scrollTrigger: {
-              toggleActions: 'restart none pause reverse',
+              toggleActions: 'restart none none reverse',
               trigger: '.tools-wrapper',
               start: 'top 70%'
             },
@@ -75,7 +75,7 @@ export default {
         section.querySelectorAll('p').forEach((paragraph) => {
           gsap.from(paragraph, {
             scrollTrigger: {
-              toggleActions: 'restart none pause reverse',
+              toggleActions: 'restart none none reverse',
               trigger: paragraph,
               start: 'top bottom'
             },
@@ -92,7 +92,7 @@ export default {
       portfolioExamples.forEach((example) => {
         gsap.from(example, {
           scrollTrigger: {
-            toggleActions: 'restart none pause reverse',
+            toggleActions: 'restart none none reverse',
             trigger: example,
             start: '80% bottom'
           },
@@ -103,7 +103,7 @@ export default {
         })
         gsap.from(example.querySelector('p'), {
           scrollTrigger: {
-            toggleActions: 'restart none pause none',
+            toggleActions: 'restart none none none',
             trigger: example,
             start: '80% bottom'
           },
@@ -118,7 +118,7 @@ export default {
         exampleTools.forEach((tool, x) => {
           gsap.from(tool, {
             scrollTrigger: {
-              toggleActions: 'restart none pause none',
+              toggleActions: 'restart none none none',
               trigger: example,
               start: '80% bottom'
             },
@@ -136,7 +136,7 @@ export default {
       formInputs.forEach((formInput) => {
         gsap.from(formInput, {
           scrollTrigger: {
-            toggleActions: 'restart none pause reverse',
+            toggleActions: 'restart none none reverse',
             trigger: formInput,
             start: '80% bottom'
           },
@@ -147,7 +147,7 @@ export default {
         })
         gsap.from(formInput.querySelector('label'), {
           scrollTrigger: {
-            toggleActions: 'restart none pause none',
+            toggleActions: 'restart none none none',
             trigger: formInput,
             start: '80% bottom'
           },
@@ -162,7 +162,7 @@ export default {
       const formButton = document.querySelector('#contact-form').querySelector('button')
       gsap.from(formButton, {
         scrollTrigger: {
-          toggleActions: 'restart none pause reverse',
+          toggleActions: 'restart none none reverse',
           trigger: formButton,
           start: '80% bottom'
         },
