@@ -158,6 +158,12 @@ header > .wrapper {
   color: var(--black);
   font-size: 2rem;
   line-height: 2em;
+
+  text-underline-offset: 0.15em;
+
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 0px 3px 1px var(--blue--dark60);
 }
 #nav-menu:has(a:hover) a {
   opacity: 0.5;
