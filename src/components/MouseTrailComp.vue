@@ -7,7 +7,7 @@ export default {
     return {
       trail: null,
       trailRadius: null,
-      trailSpeed: 0.03,
+      trailSpeed: 0.02,
       trailPos: { x: 0, y: 0 },
 
       lastScrollInsideParent: 0

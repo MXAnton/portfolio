@@ -59,20 +59,17 @@ body {
 ::-webkit-scrollbar {
   width: 5px;
 }
-
 /* Track */
 ::-webkit-scrollbar-track {
   background: gainsboro;
   border-radius: 5px;
   margin: 1px 0;
 }
-
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: black;
   border-radius: 2px;
 }
-
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
