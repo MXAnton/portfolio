@@ -82,8 +82,8 @@ export default {
 }
 
 :deep(.bubble) {
-  height: max(300px, 30vw);
-  width: max(300px, 30vw);
+  height: 300px;
+  width: 300px;
 
   background-color: var(--green-yellow--darker);
   opacity: 0.1;
