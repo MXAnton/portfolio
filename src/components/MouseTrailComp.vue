@@ -6,6 +6,7 @@ export default {
   data() {
     return {
       trail: null,
+      trailParent: null,
       trailRadius: null,
       trailSpeed: 0.02,
       trailPos: { x: 0, y: 0 },
@@ -20,6 +21,7 @@ export default {
   methods: {
     initMouseTrail() {
       this.trail = document.getElementById(this.uniqueId)
+      this.trailParent = this.trail.parentElement
       this.trailRadius = this.trail.offsetWidth / 2
       this.trailPos = {
         x: window.innerWidth / 2,
@@ -37,8 +39,12 @@ export default {
       this.trailRadius = this.trail.offsetWidth / 2
     },
     mouseMove(event) {
+      if (this.trailParent == null) {
+        return
+      }
+
       // Offset of parent element (section) to top of screen
-      const viewportOffset = this.trail.parentElement.getBoundingClientRect()
+      const viewportOffset = this.trailParent.getBoundingClientRect()
 
       this.trailPos = {
         x: event.clientX,
@@ -46,7 +52,11 @@ export default {
       }
     },
     scrollMove() {
-      const scrollInsideParent = window.scrollY - this.trail.parentElement.offsetTop
+      if (this.trailParent == null) {
+        return
+      }
+
+      const scrollInsideParent = window.scrollY - this.trailParent.offsetTop
       // Sets the trailPos.y to the same pos it was earlier relative to screen
       this.trailPos.y += scrollInsideParent - this.lastScrollInsideParent
       // Set new trailPos.y to center of screen
@@ -56,6 +66,10 @@ export default {
     },
 
     moveElement() {
+      if (this.trail == null) {
+        return
+      }
+
       const targetX = this.trailPos.x - this.trailRadius
       const targetY = this.trailPos.y - this.trailRadius
       const dx = targetX - this.trail.offsetLeft
