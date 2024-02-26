@@ -28,10 +28,14 @@ export default {
 
       window.addEventListener('mousemove', this.mouseMove)
       window.addEventListener('scroll', this.scrollMove)
+      window.addEventListener('resize', this.viewportChange)
 
       this.moveElement()
     },
 
+    viewportChange() {
+      this.trailRadius = this.trail.offsetWidth / 2
+    },
     mouseMove(event) {
       // Offset of parent element (section) to top of screen
       const viewportOffset = this.trail.parentElement.getBoundingClientRect()
