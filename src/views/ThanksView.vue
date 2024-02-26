@@ -13,19 +13,23 @@
 
         <RouterLink to="/" class="link-1">Back to home</RouterLink>
       </div>
+
+      <MouseTrailComp uniqueId="mouse-trail--thanks" />
     </section>
   </main>
 </template>
 
 <script>
+import MouseTrailComp from '../components/MouseTrailComp.vue'
+
 export default {
+  components: { MouseTrailComp },
   data() {
     return {
       email: null,
       message: null
     }
   },
-
   created() {
     this.email = this.$route.query.email
     this.message = this.$route.query.message

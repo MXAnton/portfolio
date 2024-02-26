@@ -94,7 +94,7 @@ export default {
     transform: scaleX(1) scaleY(1) translateX(0%) translateY(0%);
   }
   20% {
-    transform: scaleX(.9) scaleY(1.2) translateX(2%) translateY(-1%);
+    transform: scaleX(0.9) scaleY(1.2) translateX(2%) translateY(-1%);
   }
   50% {
     transform: scaleX(1.2) scaleY(1) translateX(1%) translateY(1%);
@@ -110,7 +110,8 @@ export default {
 /* Different styling */
 #mouse-trail--home,
 #mouse-trail--contact,
-#mouse-trail--footer {
+#mouse-trail--footer,
+#mouse-trail--thanks {
   background: radial-gradient(
     var(--blue),
     var(--blue--dark),
