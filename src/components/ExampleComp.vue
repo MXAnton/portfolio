@@ -8,8 +8,8 @@
         <p>{{ description }}</p>
       </div>
 
-      <div class="tools-wrapper">
-        <div class="tool--small" v-for="tool in tools.split(',')">{{ tool }}</div>
+      <div class="skills-wrapper">
+        <div class="skill--small" v-for="skill in skills.split(',')">{{ skill }}</div>
       </div>
     </div>
   </div>
@@ -21,7 +21,7 @@ export default {
     name: String,
     link: String,
     description: String,
-    tools: String
+    skills: String
   }
 }
 </script>
@@ -55,7 +55,7 @@ export default {
   gap: 0.5rem;
 }
 
-.example__content .tools-wrapper {
+.example__content .skills-wrapper {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem 0.5rem;

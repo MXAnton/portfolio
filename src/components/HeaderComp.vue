@@ -124,16 +124,16 @@ export default {
       >
         <nav>
           <div class="wrapper">
-            <RouterLink to="/#home" data-hovervalue="HOME of page" data-value="HOME"
+            <RouterLink to="/#home" data-hovervalue="Home of page" data-value="Home"
               >Home</RouterLink
             >
-            <RouterLink to="/#tools" data-hovervalue="Main tools" data-value="TOOLS"
-              >Tools</RouterLink
+            <RouterLink to="/#skills" data-hovervalue="Tools" data-value="Skills"
+              >Skills</RouterLink
             >
-            <RouterLink to="/#portfolio" data-hovervalue="MY WORK" data-value="Portfolio"
+            <RouterLink to="/#portfolio" data-hovervalue="My work" data-value="Portfolio"
               >Portfolio</RouterLink
             >
-            <RouterLink to="/#contact" data-hovervalue="Hit me up" data-value="conTaCT"
+            <RouterLink to="/#contact" data-hovervalue="Hit me up" data-value="Contact"
               >Contact</RouterLink
             >
           </div>

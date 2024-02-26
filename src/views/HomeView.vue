@@ -47,15 +47,15 @@ export default {
         })
       })
 
-      // TOOLS WRAPPER
-      const toolRows = document.querySelectorAll('.tools__row')
+      // skills WRAPPER
+      const toolRows = document.querySelectorAll('.skills__row')
       let index = 0
       toolRows.forEach((toolRow) => {
         toolRow.querySelectorAll('div').forEach((tool) => {
           gsap.from(tool, {
             scrollTrigger: {
               toggleActions: 'play none none none',
-              trigger: '.tools-wrapper',
+              trigger: '.skills-wrapper',
               start: 'top 70%'
             },
             opacity: 0,
@@ -113,9 +113,9 @@ export default {
           ease: 'sine'
         })
 
-        const exampleToolsWrapper = example.querySelector('.tools-wrapper')
-        const exampleTools = exampleToolsWrapper.querySelectorAll('div')
-        exampleTools.forEach((tool, x) => {
+        const exampleSkillsWrapper = example.querySelector('.skills-wrapper')
+        const exampleSkills = exampleSkillsWrapper.querySelectorAll('div')
+        exampleSkills.forEach((tool, x) => {
           gsap.from(tool, {
             scrollTrigger: {
               toggleActions: 'play none none none',
@@ -236,39 +236,39 @@ export default {
         </span>
       </div>
 
-      <RouterLink to="/#tools" class="call-to-action--scroll">
+      <RouterLink to="/#skills" class="call-to-action--scroll">
         <img src="@/assets/down-arrow.svg" alt="Down arrow" />
       </RouterLink>
 
       <MouseTrailComp uniqueId="mouse-trail--home" />
     </section>
 
-    <section id="tools">
+    <section id="skills">
       <div class="wrapper">
-        <h2>MAIN TOOLS<span class="small">:</span></h2>
+        <h2>SKILLS<span class="small">:</span></h2>
 
-        <div class="tools-wrapper">
-          <div class="tools__row">
-            <div class="tool--big">HTML</div>
-            <div class="tool--big">CSS</div>
-            <div class="tool--big">JS</div>
+        <div class="skills-wrapper">
+          <div class="skills__row">
+            <div class="skill--big">HTML</div>
+            <div class="skill--big">CSS</div>
+            <div class="skill--big">JS</div>
           </div>
-          <div class="tools__row">
-            <div class="tool--big">GSAP</div>
-            <div class="tool--big">Vue.js</div>
-            <div class="tool--big">Node.js</div>
+          <div class="skills__row">
+            <div class="skill--big">GSAP</div>
+            <div class="skill--big">Vue.js</div>
+            <div class="skill--big">Node.js</div>
           </div>
-          <div class="tools__row">
-            <div class="tool--big">Express.js</div>
-            <div class="tool--big">SQL</div>
+          <div class="skills__row">
+            <div class="skill--big">Express.js</div>
+            <div class="skill--big">SQL</div>
           </div>
-          <div class="tools__row">
-            <div class="tool--big">Figma</div>
+          <div class="skills__row">
+            <div class="skill--big">Figma</div>
           </div>
         </div>
       </div>
 
-      <MouseTrailComp uniqueId="mouse-trail--tools" />
+      <MouseTrailComp uniqueId="mouse-trail--skills" />
     </section>
 
     <section id="portfolio">
@@ -285,7 +285,7 @@ export default {
             name="calmprofessor.se"
             link="https://www.calmprofessor.se/"
             description="Take quick interactive lessons where ever you are!"
-            tools="HTML,CSS,JS,Vue.js,Node.js,Express.js,SQL"
+            skills="HTML,CSS,JS,Vue.js,Node.js,Express.js,SQL"
           >
             <img src="/images/showcase-calmprofessor.jpg" alt="Display of homepage of site"
           /></ExampleComp>
@@ -295,7 +295,7 @@ export default {
             link="https://www.mhfothem.se/"
             description="Motocross association that gives everyone the opportunity to ride motocross, with
                 main focus on children."
-            tools="HTML,CSS,JS,Vue.js,Google Firestore & Auth,Figma"
+            skills="HTML,CSS,JS,Vue.js,Google Firestore & Auth,Figma"
           >
             <img src="/images/showcase-mhfothem.jpg" alt="Display of homepage of site" />
           </ExampleComp>
@@ -304,7 +304,7 @@ export default {
             name="gamifiera.com"
             link="https://www.gamifiera.com/"
             description="Gamifiera® offers a one stop solution for your e-commerce and omnichannel gamification and social platform needs."
-            tools="HTML,CSS,JS,Vue.js"
+            skills="HTML,CSS,JS,Vue.js"
           >
             <img src="/images/showcase-gamifiera.jpg" alt="Display of homepage of site" />
           </ExampleComp>
@@ -313,7 +313,7 @@ export default {
             name="delari3d.se"
             link="https://www.delari3d.se/"
             description="Web store where you can by 3D-printed objects."
-            tools="HTML,CSS,JS,Vue.js,Node.js,Express.js,SQL,Figma"
+            skills="HTML,CSS,JS,Vue.js,Node.js,Express.js,SQL,Figma"
           >
             <img src="/images/showcase-delari3d.jpg" alt="Display of homepage of site" />
           </ExampleComp>
@@ -451,8 +451,8 @@ h3 {
   color: var(--color-text);
 }
 
-/* TOOLS */
-#tools {
+/* skills */
+#skills {
   --color-background: var(--green-yellow);
   --color-text: var(--blue--dark);
   --color-text--dark: var(--blue--dark60);
@@ -460,17 +460,17 @@ h3 {
   /* align-items: start; */
 }
 
-#tools .tools-wrapper {
+#skills .skills-wrapper {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
 }
 
-.tools__row {
+.skills__row {
   display: flex;
   gap: 0.5rem;
 }
-/* .tools__row > div {
+/* .skills__row > div {
   opacity: 0;
 } */
 

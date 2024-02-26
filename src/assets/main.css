@@ -193,7 +193,7 @@ label.required:after {
 .link-1 {
   text-decoration: underline;
   color: var(--white);
-  
+
   font-style: none;
 }
 
@@ -254,9 +254,9 @@ label.required:after {
   }
 }
 
-/* TOOLS */
-.tool--big,
-.tool--small {
+/* SKILLS */
+.skill--big,
+.skill--small {
   background-color: var(--blue--light);
   color: var(--black);
 
@@ -269,7 +269,7 @@ label.required:after {
   font-size: 1rem;
 }
 
-.tool--small {
+.skill--small {
   padding: 0.33em 1em;
 
   font-size: 0.75rem;
