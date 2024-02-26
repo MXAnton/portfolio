@@ -257,10 +257,11 @@ label.required:after {
 /* SKILLS */
 .skill--big,
 .skill--small {
-  background-color: var(--blue--light);
+  --color: var(--blue--light);
+  background-color: var(--color);
   color: var(--black);
 
-  box-shadow: 0px 3px 0px var(--blue--lighter60);
+  box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.3), 0px 3px 0px var(--color);
 
   border-radius: 22px;
 
