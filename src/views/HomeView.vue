@@ -339,6 +339,7 @@ export default {
               type="email"
               name="email"
               id="email"
+              autocomplete="email"
               placeholder="Your email..."
               required
               v-model="email"
