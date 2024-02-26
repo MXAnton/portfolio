@@ -287,9 +287,8 @@ export default {
       <div class="wrapper">
         <h2>PORTFOLIO<span class="small">:</span></h2>
         <p>
-          I do both frontend (the visual part) and backend (if you need a database for example), to
-          ensure you get a complete site. If you do not have your own design, I can help you with
-          that as well. Here are some of the websites I have worked on:
+          I'm a passionate full-stack developer with focus on Vue 3, Node.js, and SQL. Here are some
+          of the websites I have worked on:
         </p>
 
         <div class="examples">
