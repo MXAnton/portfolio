@@ -4,15 +4,15 @@
 
     <div class="carousell__slider" ref="slider">
       <ul ref="sliderContent">
-        <li class="carousell__item" v-for="item in items" :key="item.name">
-          <a :href="item.link" target="_blank" rel="noopener noreferrer" class="link--img">
-            <img :src="item.image" alt="Display of homepage of site"
-          /></a>
+        <li class="carousell__item" v-for="(item, i) in items" :key="i">
+          <!-- <a :href="item.link" target="_blank" rel="noopener noreferrer" class="link--img">
+          </a> -->
+          <RouterLink :to="'/project/' + i" class="link--img">
+            <img :src="item.image" alt="Display of homepage of site" />
+          </RouterLink>
 
           <div class="carousell__item__text">
-            <a :href="item.link" target="_blank" rel="noopener noreferrer" class="link-1">{{
-              item.name
-            }}</a>
+            <RouterLink :to="'/project/' + i" class="link-1">{{ item.name }} </RouterLink>
             <p>{{ item.description }}</p>
           </div>
         </li>
@@ -46,6 +46,11 @@ export default {
     },
 
     showSlides(_newSlideIndex) {
+      if (this.$refs.sliderContent == null) {
+        this.stopAutoScroll()
+        return
+      }
+
       if (_newSlideIndex < 0) {
         this.slideIndex = this.items.length - 1
       } else if (_newSlideIndex > this.items.length - 1) {
@@ -56,12 +61,21 @@ export default {
 
       this.$refs.sliderContent.style.transform = `translateX(${-100 * this.slideIndex}%)`
 
-      if (this.autoScrollInterval != null) {
-        clearInterval(this.autoScrollInterval)
-      }
+      this.startAutoScroll()
+    },
+
+    startAutoScroll() {
+      this.stopAutoScroll()
+
       this.autoScrollInterval = setInterval(() => {
         this.plusSlides(1)
       }, 3000)
+    },
+    stopAutoScroll() {
+      if (this.autoScrollInterval != null) {
+        clearInterval(this.autoScrollInterval)
+        this.autoScrollInterval == null
+      }
     }
   },
 
