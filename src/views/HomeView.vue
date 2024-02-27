@@ -7,13 +7,14 @@ import Botpoison from '@botpoison/browser'
 
 import MouseTrailComp from '../components/MouseTrailComp.vue'
 import ExampleComp from '../components/ExampleComp.vue'
+import CarousellComp from '../components/CarousellComp.vue'
 
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 export default {
-  components: { MouseTrailComp, ExampleComp },
+  components: { MouseTrailComp, ExampleComp, CarousellComp },
   data() {
     return {
       botpoison: null,
@@ -88,47 +89,17 @@ export default {
       })
 
       // PORTFOLIO CARDS
-      const portfolioExamples = document.querySelectorAll('.example')
-      portfolioExamples.forEach((example) => {
-        gsap.from(example, {
-          scrollTrigger: {
-            toggleActions: 'play none none none',
-            trigger: example,
-            start: '80% bottom'
-          },
-          opacity: 0,
-          x: 100,
-          duration: 0.4,
-          ease: 'sine'
-        })
-        gsap.from(example.querySelector('p'), {
-          scrollTrigger: {
-            toggleActions: 'play none none none',
-            trigger: example,
-            start: '80% bottom'
-          },
-          opacity: 0,
-          y: 100,
-          duration: 0.4,
-          ease: 'sine'
-        })
-
-        const exampleSkillsWrapper = example.querySelector('.skills-wrapper')
-        const exampleSkills = exampleSkillsWrapper.querySelectorAll('div')
-        exampleSkills.forEach((tool, x) => {
-          gsap.from(tool, {
-            scrollTrigger: {
-              toggleActions: 'play none none none',
-              trigger: example,
-              start: '80% bottom'
-            },
-            opacity: 0,
-            x: 100,
-            duration: 0.3,
-            delay: x * 0.2, // Apply the delay based on the index
-            ease: 'sine'
-          })
-        })
+      const portfolioCarousell = document.querySelector('.carousell')
+      gsap.from(portfolioCarousell, {
+        scrollTrigger: {
+          toggleActions: 'play none none none',
+          trigger: portfolioCarousell,
+          start: '80% bottom'
+        },
+        opacity: 0,
+        y: 100,
+        duration: 0.4,
+        ease: 'sine'
       })
 
       // HIT ME UP FORM
@@ -291,44 +262,7 @@ export default {
           of the websites I have worked on:
         </p>
 
-        <div class="examples">
-          <ExampleComp
-            name="calmprofessor.se"
-            link="https://www.calmprofessor.se/"
-            description="Take quick interactive lessons where ever you are!"
-            skills="HTML,CSS,JS,Vue.js,Node.js,Express.js,SQL"
-          >
-            <img src="/images/showcase-calmprofessor.jpg" alt="Display of homepage of site"
-          /></ExampleComp>
-
-          <ExampleComp
-            name="mhfothem.se"
-            link="https://www.mhfothem.se/"
-            description="Motocross association that gives everyone the opportunity to ride motocross, with
-                main focus on children."
-            skills="HTML,CSS,JS,Vue.js,Google Firestore & Auth,Figma"
-          >
-            <img src="/images/showcase-mhfothem.jpg" alt="Display of homepage of site" />
-          </ExampleComp>
-
-          <ExampleComp
-            name="gamifiera.com"
-            link="https://www.gamifiera.com/"
-            description="Gamifiera® offers a one stop solution for your e-commerce and omnichannel gamification and social platform needs."
-            skills="HTML,CSS,JS,Vue.js"
-          >
-            <img src="/images/showcase-gamifiera.jpg" alt="Display of homepage of site" />
-          </ExampleComp>
-
-          <ExampleComp
-            name="delari3d.se"
-            link="https://www.delari3d.se/"
-            description="Web store where you can by 3D-printed objects."
-            skills="HTML,CSS,JS,Vue.js,Node.js,Express.js,SQL,Figma"
-          >
-            <img src="/images/showcase-delari3d.jpg" alt="Display of homepage of site" />
-          </ExampleComp>
-        </div>
+        <CarousellComp :items="$store.state.projects" />
       </div>
 
       <MouseTrailComp uniqueId="mouse-trail--portfolio" />
