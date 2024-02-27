@@ -137,6 +137,41 @@ export default {
   background-color: var(--blue--dark);
 }
 
+.carousell__item .link--img {
+  overflow: hidden;
+
+  position: relative;
+}
+.carousell__item .link--img img {
+  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+.carousell__item .link--img::after {
+  content: 'Click to see more';
+  font-size: 7svw;
+  font-weight: 700;
+  line-height: 100%;
+  color: var(--green-yellow--darker);
+  text-align: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 2;
+
+  opacity: 0;
+
+  transition: opacity 0.1s ease-in-out;
+}
+.carousell__item .link--img:hover::after {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+.carousell__item .link--img:hover img {
+  filter: blur(1px) grayscale(1) opacity(0.6);
+  transform: scale(1.1);
+}
+
 .carousell__item__text {
   padding: 0.5rem 1rem 1.5rem;
 }
