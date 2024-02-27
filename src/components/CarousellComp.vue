@@ -36,7 +36,8 @@ export default {
   },
   data() {
     return {
-      slideIndex: 1
+      slideIndex: 1,
+      autoScrollInterval: null
     }
   },
   methods: {
@@ -54,6 +55,13 @@ export default {
       }
 
       this.$refs.sliderContent.style.transform = `translateX(${-100 * this.slideIndex}%)`
+
+      if (this.autoScrollInterval != null) {
+        clearInterval(this.autoScrollInterval)
+      }
+      this.autoScrollInterval = setInterval(() => {
+        this.plusSlides(1)
+      }, 3000)
     }
   },
 
