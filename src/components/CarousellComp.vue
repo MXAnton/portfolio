@@ -69,7 +69,7 @@ export default {
 
       this.autoScrollInterval = setInterval(() => {
         this.plusSlides(1)
-      }, 5000)
+      }, 3000)
     },
     stopAutoScroll() {
       if (this.autoScrollInterval != null) {
@@ -81,6 +81,9 @@ export default {
 
   mounted() {
     this.showSlides(this.slideIndex)
+
+    this.$refs.sliderContent.addEventListener('mouseenter', this.stopAutoScroll)
+    this.$refs.sliderContent.addEventListener('mouseleave', this.startAutoScroll)
   }
 }
 </script>
