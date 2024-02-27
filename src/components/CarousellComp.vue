@@ -69,7 +69,7 @@ export default {
 
       this.autoScrollInterval = setInterval(() => {
         this.plusSlides(1)
-      }, 3000)
+      }, 5000)
     },
     stopAutoScroll() {
       if (this.autoScrollInterval != null) {
