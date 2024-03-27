@@ -174,36 +174,36 @@ export default {
     <section id="home">
       <div class="wrapper">
         <h1 class="flip-on-hover">
-          <div v-for="word in 'ANTON LEHRBERG'.split(' ')" class="flip-on-hover__word">
+          <div v-for="word in 'Anton Lehrberg'.split(' ')" class="flip-on-hover__word">
             <div v-for="letter in word" class="flip-on-hover__letter">
               <div>{{ letter }}</div>
             </div>
           </div>
         </h1>
 
-        <h3 class="flip-on-hover">
-          <div v-for="word in 'FULL STACK DEVELOPER'.split(' ')" class="flip-on-hover__word">
+        <p class="flip-on-hover h3">
+          <div v-for="word in 'Full stack developer'.split(' ')" class="flip-on-hover__word">
             <div v-for="letter in word" class="flip-on-hover__letter">
               <div>{{ letter }}</div>
             </div>
           </div>
-        </h3>
+        </p>
 
         <span class="from-country">
-          <h4 class="flip-on-hover">
+          <p class="flip-on-hover h4">
             <div class="flip-on-hover__word">
               <div v-for="letter in 'from'" class="flip-on-hover__letter">
                 <div>{{ letter }}</div>
               </div>
             </div>
-          </h4>
-          <h4 class="from-country__country flip-on-hover">
+          </p>
+          <p class="from-country__country flip-on-hover h4">
             <div class="flip-on-hover__word">
               <div v-for="letter in 'SWEDEN'" class="flip-on-hover__letter">
                 <div>{{ letter }}</div>
               </div>
             </div>
-          </h4>
+          </p>
         </span>
       </div>
 
@@ -216,7 +216,7 @@ export default {
 
     <section id="skills">
       <div class="wrapper">
-        <h2>SKILLS<span class="small">:</span></h2>
+        <h2>Skills<span class="small">:</span></h2>
 
         <div class="skills-wrapper skills-wrapper--tech">
           <div class="skills__row">
@@ -256,13 +256,24 @@ export default {
 
     <section id="portfolio">
       <div class="wrapper">
-        <h2>PORTFOLIO<span class="small">:</span></h2>
+        <h2>Portfolio<span class="small">:</span></h2>
         <p>
           I'm a passionate full-stack developer with focus on Vue 3, Node.js, and SQL. Here are some
           of the websites I have worked on:
         </p>
 
-        <CarousellComp :items="$store.state.projects" />
+        <CarousellComp><li class="carousell__item" v-for="(item, i) in $store.state.projects" :key="i">
+          <!-- <a :href="item.link" target="_blank" rel="noopener noreferrer" class="link--img">
+          </a> -->
+          <RouterLink :to="'/project/' + i" class="link--img">
+            <img :src="item.images[0]" alt="Display of homepage of site" />
+          </RouterLink>
+
+          <div class="carousell__item__text">
+            <RouterLink :to="'/project/' + i" class="link-1">{{ item.name }} </RouterLink>
+            <p>{{ item.intro }}</p>
+          </div>
+        </li></CarousellComp>
       </div>
 
       <MouseTrailComp uniqueId="mouse-trail--portfolio" />
@@ -270,7 +281,7 @@ export default {
 
     <section id="contact">
       <div class="wrapper">
-        <h2>HIT ME UP<span class="small">:</span></h2>
+        <h2>Hit me up<span class="small">:</span></h2>
 
         <form
           @submit.prevent="submitForm"
@@ -373,7 +384,7 @@ main::-webkit-scrollbar{
   text-align: center;
 }
 
-h3 {
+.h3 {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
 }
@@ -402,15 +413,8 @@ h3 {
   --color-background: var(--green-yellow);
   --color-text: var(--blue--dark);
   --color-text--dark: var(--blue--dark60);
-
-  /* align-items: start; */
 }
 
-#skills .skills-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-}
 .skills-wrapper--tech {
   --color: var(--green-yellow);
 }
@@ -422,14 +426,9 @@ h3 {
   margin-top: 1rem;
   align-items: end;
 }
-
-.skills__row {
-  display: flex;
-  gap: 0.5rem;
+.skills-wrapper:not(.skills-wrapper--tech) .skills__row {
+  justify-content: end;
 }
-/* .skills__row > div {
-  opacity: 0;
-} */
 
 /* portfolio */
 #portfolio {

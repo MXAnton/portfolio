@@ -4,25 +4,14 @@
 
     <div class="carousell__slider" ref="slider">
       <ul ref="sliderContent">
-        <li class="carousell__item" v-for="(item, i) in items" :key="i">
-          <!-- <a :href="item.link" target="_blank" rel="noopener noreferrer" class="link--img">
-          </a> -->
-          <RouterLink :to="'/project/' + i" class="link--img">
-            <img :src="item.image" alt="Display of homepage of site" />
-          </RouterLink>
-
-          <div class="carousell__item__text">
-            <RouterLink :to="'/project/' + i" class="link-1">{{ item.name }} </RouterLink>
-            <p>{{ item.description }}</p>
-          </div>
-        </li>
+        <slot></slot>
       </ul>
     </div>
 
     <button @click="plusSlides(1)" class="carousell__nav-btn">{{ '>' }}</button>
 
     <ul class="carousell__dots">
-      <li v-for="(item, i) in items" :key="i" :class="{ current: i == slideIndex }">
+      <li v-for="(item, i) in slides" :key="i" :class="{ current: i == slideIndex }">
         <button @click="showSlides(i)"></button>
       </li>
     </ul>
@@ -31,11 +20,9 @@
 
 <script>
 export default {
-  props: {
-    items: Array
-  },
   data() {
     return {
+      slides: 0,
       slideIndex: 1,
       autoScrollInterval: null
     }
@@ -52,8 +39,8 @@ export default {
       }
 
       if (_newSlideIndex < 0) {
-        this.slideIndex = this.items.length - 1
-      } else if (_newSlideIndex > this.items.length - 1) {
+        this.slideIndex = this.slides - 1
+      } else if (_newSlideIndex > this.slides - 1) {
         this.slideIndex = 0
       } else {
         this.slideIndex = _newSlideIndex
@@ -80,6 +67,8 @@ export default {
   },
 
   mounted() {
+    this.slides = this.$refs.sliderContent.children.length
+
     this.showSlides(this.slideIndex)
 
     this.$refs.sliderContent.addEventListener('mouseenter', this.stopAutoScroll)
@@ -88,7 +77,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .carousell {
   position: relative;
 }

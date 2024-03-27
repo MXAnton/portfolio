@@ -1,10 +1,5 @@
 <script>
-import MouseTrailComp from './MouseTrailComp.vue'
-
 export default {
-  components: {
-    MouseTrailComp
-  },
   data() {
     return {
       bubbleWrapper: null
@@ -60,8 +55,6 @@ export default {
     <div class="wrapper">
       <p>Copyright© {{ new Date().getFullYear() }} Anton Lehrberg All Rights Reserved</p>
     </div>
-
-    <MouseTrailComp uniqueId="mouse-trail--footer" />
 
     <div id="bubble-wrapper"></div>
   </footer>
