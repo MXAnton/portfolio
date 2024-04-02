@@ -220,21 +220,17 @@ export default {
 
         <div class="skills-wrapper skills-wrapper--tech">
           <div class="skills__row">
-            <div class="skill--big">HTML</div>
-            <div class="skill--big">CSS</div>
-            <div class="skill--big">Figma</div>
           </div>
           <div class="skills__row">
-            <div class="skill--big">JS</div>
-            <div class="skill--big">GSAP</div>
             <div class="skill--big">Vue.js</div>
             <div class="skill--big">Node.js</div>
+            <div class="skill--big">Express.js</div>
           </div>
           <div class="skills__row">
-            <div class="skill--big">Express.js</div>
             <div class="skill--big">SQL</div>
-            <div class="skill--big">Ubuntu</div>
             <div class="skill--big">Github Actions</div>
+            <div class="skill--big">Ubuntu</div>
+            <div class="skill--big">Caddy</div>
           </div>
         </div>
 
