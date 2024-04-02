@@ -259,16 +259,16 @@ export default {
         </p>
 
         <CarousellComp><li class="carousell__item" v-for="(item, i) in $store.state.projects" :key="i">
-          <!-- <a :href="item.link" target="_blank" rel="noopener noreferrer" class="link--img">
-          </a> -->
-          <RouterLink :to="'/project/' + i" class="link--img">
-            <img :src="item.images[0]" alt="Display of homepage of site" />
-          </RouterLink>
+          <RouterLink :to="'/project/' + i">
+            <div class="link--img">
+              <img :src="item.images[0]" alt="Display of homepage of site" />
+            </div>
 
-          <div class="carousell__item__text">
-            <RouterLink :to="'/project/' + i" class="link-1">{{ item.name }} </RouterLink>
-            <p>{{ item.intro }}</p>
-          </div>
+            <div class="carousell__item__text">
+              <h3 class="link-1">{{ item.name }}</h3>
+              <p>{{ item.intro }}</p>
+            </div>
+          </RouterLink>
         </li></CarousellComp>
       </div>
 

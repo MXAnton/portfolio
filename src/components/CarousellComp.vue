@@ -120,30 +120,45 @@ export default {
 .carousell__item {
   width: 100%;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
 
+  position: relative;
+}
+.carousell__item > img {
+  width: 100%;
+}
+
+.carousell__item > a {
   display: flex;
   flex-direction: column;
   overflow: hidden;
   border-radius: 0.5rem;
+  margin: 2px 0 4px;
 
   background-color: var(--blue--dark);
-}
+  text-decoration: none;
+  box-shadow: 0 4px 0 var(--blue--dark60);
 
-.carousell__item .link--img {
-  overflow: hidden;
-
-  position: relative;
+  transform: translateY(0px);
+  transition: all 0.1s ease-in-out, border 0.2s ease-in-out;
 }
-.carousell__item .link--img img {
-  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+.carousell__item > a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--blue--dark60);
+  opacity: 0.9;
+  filter: blur(1px) brightness(0.4);
 }
-.carousell__item .link--img::after {
+.carousell__item::after {
   content: 'Click to see more';
-  font-size: 7svw;
+  font-size: calc(min(5svw, 2rem));
   font-weight: 700;
   line-height: 100%;
-  color: var(--green-yellow--darker);
+  color: black;
   text-align: center;
+
+  padding: 0.2em;
+  background-color: white;
 
   position: absolute;
   top: 50%;
@@ -151,21 +166,29 @@ export default {
   transform: translateX(-50%) translateY(-50%);
   z-index: 2;
 
+  filter: brightness(1.5);
   opacity: 0;
+
+  pointer-events: none;
 
   transition: opacity 0.1s ease-in-out;
 }
-.carousell__item .link--img:hover::after {
+.carousell__item:has(a:hover)::after {
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
 }
-.carousell__item .link--img:hover img {
-  filter: blur(1px) grayscale(1) opacity(0.6);
-  transform: scale(1.1);
+.carousell__item > a:active {
+  transform: translateY(4px);
+  box-shadow: 0 0px 0 var(--blue--dark60);
 }
 
 .carousell__item__text {
   padding: 0.5rem 1rem 1.5rem;
+}
+.carousell__item__text h3 {
+  text-shadow: none;
+  font-size: 1.4rem;
+  margin-bottom: 0.2em;
 }
 
 .carousell__dots {
