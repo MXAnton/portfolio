@@ -254,8 +254,8 @@ export default {
       <div class="wrapper">
         <h2>Portfolio<span class="small">:</span></h2>
         <p>
-          I'm a passionate full-stack developer with focus on Vue 3, Node.js, and SQL. Here are some
-          of the websites I have worked on:
+          I'm a passionate full-stack developer with focus on Vue 3, Node.js, Express.js and SQL. Here are some
+          of the projects I have worked on:
         </p>
 
         <CarousellComp><li class="carousell__item" v-for="(item, i) in $store.state.projects" :key="i">
