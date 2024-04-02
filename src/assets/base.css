@@ -57,18 +57,16 @@ body {
 
 /* Designing for scroll-bar */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 10px;
 }
 /* Track */
 ::-webkit-scrollbar-track {
-  background: gainsboro;
-  border-radius: 5px;
+  background: black;
   margin: 1px 0;
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: black;
-  border-radius: 2px;
+  background: gainsboro;
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
