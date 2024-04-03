@@ -267,7 +267,10 @@ export default {
             <div class="carousell__item__text">
               <h3 class="link-1">{{ item.name }}</h3>
               <p>{{ item.intro }}</p>
+              
+              <p class="button-1">Read more</p>
             </div>
+
           </RouterLink>
         </li></CarousellComp>
       </div>
@@ -361,17 +364,7 @@ export default {
 }
 .flip-on-hover__letter:hover > div {
   transform: scale(-1, 1);
-  /* font-weight: 100; */
 }
-
-/* main {
-  max-height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-}
-main::-webkit-scrollbar{
-  display: none;
-} */
 
 /* HERO / HOME */
 #home > .wrapper {
@@ -441,6 +434,16 @@ main::-webkit-scrollbar{
   grid-template-columns: 1fr;
 
   gap: 1.5rem;
+}
+
+.carousell__item__text .button-1 {
+  width: fit-content;
+  font-size: 1rem;
+  padding: .2em .6em;
+  border-radius: .3em;
+  box-shadow: none;
+
+  margin-top: .6em;
 }
 
 /* contact */

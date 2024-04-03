@@ -223,15 +223,17 @@ export default {
   filter: blur(1px) brightness(0.4);
 }
 .carousell__item::after {
-  content: 'Click to see more';
+  content: 'Click to read more';
   font-size: calc(min(5svw, 2rem));
   font-weight: 700;
   line-height: 100%;
   color: black;
   text-align: center;
+  text-transform: uppercase;
 
   padding: 0.2em;
   background-color: white;
+  border-radius: 0.2em;
 
   position: absolute;
   top: 50%;
