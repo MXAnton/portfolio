@@ -27,10 +27,10 @@
   --color-text: var(--green-yellow);
   --color-text--dark: var(--green-yellow--darker);
 
-  --horizontal--padding: 24px;
-  --vertical--padding: 100px;
+  --horizontal--padding: 1.5rem;
+  --vertical--padding: 7rem;
 
-  --site-max-width: 700px;
+  --site-max-width: 43rem;
 
   scroll-behavior: smooth;
 }
