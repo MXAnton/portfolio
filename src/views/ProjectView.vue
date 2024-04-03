@@ -114,6 +114,11 @@ export default {
 </script>
 
 <style scoped>
+main section {
+  background-color: var(--blue);
+  --color-text: var(--blue--lighter);
+}
+
 h1,
 h2 {
   text-shadow: none;
