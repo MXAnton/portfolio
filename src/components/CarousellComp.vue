@@ -1,6 +1,8 @@
 <template>
   <div class="carousell">
-    <button @click="plusSlides(-1)" class="carousell__nav-btn">{{ '<' }}</button>
+    <button @click="plusSlides(-1)" class="carousell__nav-btn">
+      <ArrowIcon :flipX="true" />
+    </button>
 
     <div class="carousell__slider" ref="slider">
       <ul ref="sliderContent">
@@ -8,7 +10,7 @@
       </ul>
     </div>
 
-    <button @click="plusSlides(1)" class="carousell__nav-btn">{{ '>' }}</button>
+    <button @click="plusSlides(1)" class="carousell__nav-btn right"><ArrowIcon /></button>
 
     <ul class="carousell__dots">
       <li v-for="(item, i) in slides" :key="i" :class="{ current: i == slideIndex }">
@@ -19,7 +21,13 @@
 </template>
 
 <script>
+import ArrowIcon from './icons/ArrowIcon.vue'
+
 export default {
+  components: {
+    ArrowIcon
+  },
+
   data() {
     return {
       slides: 0,
@@ -84,14 +92,18 @@ export default {
 
 .carousell__nav-btn {
   font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   position: absolute;
   left: -0.5em;
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
+
+  overflow: hidden;
 
   width: 1.5em;
   height: 1.5em;
@@ -101,9 +113,71 @@ export default {
   background-color: var(--blue--dark);
   color: var(--color-text);
 }
-.carousell__nav-btn:last-of-type {
+.carousell__nav-btn.right {
   left: unset;
   right: -0.5em;
+}
+.carousell__nav-btn:focus svg {
+  animation: bounce-out-left-in-right 0.5s ease;
+}
+.carousell__nav-btn.right:focus svg {
+  animation: bounce-out-right-in-left 0.5s ease;
+}
+.carousell__nav-btn:active svg {
+  -webkit-animation: none;
+  animation: none;
+}
+.carousell__nav-btn.right:active svg {
+  -webkit-animation: none;
+  animation: none;
+}
+@keyframes bounce-out-right-in-left {
+  0% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  39% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  40% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(3%);
+  }
+  90% {
+    transform: translateX(-2%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes bounce-out-left-in-right {
+  0% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  39% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  40% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(-3%);
+  }
+  90% {
+    transform: translateX(2%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .carousell__slider {
