@@ -2,8 +2,10 @@
   <main>
     <section>
       <div class="wrapper">
-        <h1>Thanks for contacting me!</h1>
-        <h3>I will reply as soon as I can :)</h3>
+        <div class="header">
+          <h1>Thanks for contacting me!</h1>
+          <p>I will reply as soon as I can :)</p>
+        </div>
 
         <code class="code--form"
           ><span class="code__title">email</span>: "{{ email }}"<br /><span class="code__title"
@@ -40,5 +42,9 @@ export default {
 <style scoped>
 .link-1 {
   margin-top: 1rem;
+}
+
+.header p {
+  margin-top: 0.4em;
 }
 </style>
