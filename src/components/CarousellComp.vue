@@ -57,6 +57,8 @@ export default {
       this.$refs.sliderContent.style.transform = `translateX(${-100 * this.slideIndex}%)`
 
       this.startAutoScroll()
+
+      this.$emit('changedSlide', this.slideIndex)
     },
 
     startAutoScroll() {
@@ -198,9 +200,6 @@ export default {
   align-items: center;
 
   position: relative;
-}
-.carousell__item > img {
-  width: 100%;
 }
 
 .carousell__item > a {

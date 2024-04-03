@@ -43,9 +43,11 @@
         <div class="showcase">
           <h2>Showcase<span class="small">:</span></h2>
 
-          <CarousellComp
+          <CarousellComp @changedSlide="onChangedSlide"
             ><li class="carousell__item" v-for="(image, i) in project.images.slice(1)" :key="i">
-              <img :src="image" alt="Image of site" /></li
+              <button class="btn--enlarge-image" @click="openEnlargedImage">
+                <img :src="image" alt="Image of site" />
+              </button></li
           ></CarousellComp>
         </div>
 
@@ -60,6 +62,17 @@
       </div>
     </section>
   </main>
+
+  <dialog
+    @click="closeEnlargedImage"
+    ref="enlargedImageModal"
+    id="enlarged-image-modal"
+    class="enlarged-image-modal"
+  >
+    <div class="enlarged-image__wrapper">
+      <img :src="project.images[slideIndex]" alt="Image of site" />
+    </div>
+  </dialog>
 </template>
 
 <script>
@@ -73,9 +86,24 @@ export default {
   },
   data() {
     return {
-      project: null
+      project: null,
+      slideIndex: 0
     }
   },
+
+  methods: {
+    openEnlargedImage() {
+      this.$refs.enlargedImageModal.showModal()
+    },
+    closeEnlargedImage() {
+      this.$refs.enlargedImageModal.close()
+    },
+
+    onChangedSlide(_value) {
+      this.slideIndex = _value + 1
+    }
+  },
+
   created() {
     this.project = this.$store.state.projects[this.$route.params.projectIndex]
     if (this.project == null) {
@@ -124,6 +152,74 @@ h2 {
 .showcase h2 {
   margin-bottom: 0.7rem;
 }
+
+.enlarged-image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+
+  width: 100%;
+  height: 100%;
+  max-width: unset;
+  max-height: unset;
+
+  border: none;
+  padding: 0;
+
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.enlarged-image-modal[open] {
+  display: flex;
+}
+.enlarged-image__wrapper {
+  position: relative;
+
+  max-height: 100%;
+  width: calc(min(100%, 160svh));
+
+  box-sizing: border-box;
+  padding: 1.6rem 2vw;
+}
+.enlarged-image-modal[open] .enlarged-image__wrapper {
+  animation: grow-in 0.2s ease-in-out;
+}
+@keyframes grow-in {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.enlarged-image__wrapper::after {
+  content: 'Click to close';
+
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--green-yellow--darker);
+  background-color: var(--blue--dark);
+
+  padding: 0.5em;
+
+  position: absolute;
+  top: -0.4em;
+  right: 2vw;
+
+  cursor: pointer;
+}
+.enlarged-image-modal img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 </style>
 <style>
 .carousell__dots > li > button {
@@ -131,5 +227,43 @@ h2 {
 }
 .carousell__dots > li.current > button {
   background-color: var(--color-text);
+}
+
+.btn--enlarge-image {
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+
+  width: 100%;
+  height: min-content;
+
+  position: relative;
+}
+.btn--enlarge-image::after {
+  content: '';
+  background-image: url('../assets/enlarge-icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0.5em;
+
+  position: absolute;
+  top: 0.2em;
+  right: 0.2em;
+
+  font-size: 2rem;
+
+  width: 1em;
+  height: 1em;
+
+  border-radius: 50%;
+  background-color: var(--blue--dark);
+}
+.btn--enlarge-image > img {
+  width: 100%;
+  transition: transform 0.2s ease-in-out;
+}
+.btn--enlarge-image:hover > img {
+  transform: scale(1.05);
 }
 </style>
