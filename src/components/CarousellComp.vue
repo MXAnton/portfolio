@@ -118,10 +118,10 @@ export default {
   right: -0.5em;
 }
 .carousell__nav-btn:focus svg {
-  animation: bounce-out-left-in-right 0.5s ease;
+  animation: bounce-out-left-in-right 0.3s ease;
 }
 .carousell__nav-btn.right:focus svg {
-  animation: bounce-out-right-in-left 0.5s ease;
+  animation: bounce-out-right-in-left 0.3s ease;
 }
 .carousell__nav-btn:active svg {
   -webkit-animation: none;
