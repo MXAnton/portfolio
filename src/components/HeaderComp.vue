@@ -248,7 +248,7 @@ header > .wrapper {
 
   text-transform: uppercase;
   font-weight: bold;
-  text-shadow: 0px 3px 1px var(--blue--dark60);
+  text-shadow: 0px 0.07em 1px var(--blue--dark60);
 }
 #nav-menu:has(a:hover) a {
   opacity: 0.5;
