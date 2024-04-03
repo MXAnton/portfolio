@@ -262,7 +262,15 @@ export default {
 .carousell__item__text h3 {
   text-shadow: none;
   font-size: 1.4rem;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.3em;
+}
+.carousell__item__text > p {
+  line-height: 1.3;
+}
+@media screen and (width < 400px) {
+  .carousell__item__text {
+    padding: 0.8rem 2.2rem 1.5rem;
+  }
 }
 
 .carousell__dots {
