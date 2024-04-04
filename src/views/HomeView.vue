@@ -62,7 +62,7 @@ export default {
             opacity: 0,
             y: 100,
             duration: 0.3,
-            delay: index * 0.2, // Apply the delay based on the index
+            delay: index * 0.1, // Apply the delay based on the index
             ease: 'sine'
           })
 
@@ -71,9 +71,7 @@ export default {
       })
 
       // SECTIONS PARAGRAPHS
-      const sections = document.querySelectorAll('section')
-      sections.forEach((section) => {
-        section.querySelectorAll('p').forEach((paragraph) => {
+      document.querySelectorAll('.fly-in').forEach((paragraph) => {
           gsap.from(paragraph, {
             scrollTrigger: {
               toggleActions: 'play none none none',
@@ -86,62 +84,6 @@ export default {
             ease: 'sine'
           })
         })
-      })
-
-      // PORTFOLIO CARDS
-      const portfolioCarousell = document.querySelector('.carousell')
-      gsap.from(portfolioCarousell, {
-        scrollTrigger: {
-          toggleActions: 'play none none none',
-          trigger: portfolioCarousell,
-          start: '80% bottom'
-        },
-        opacity: 0,
-        y: 100,
-        duration: 0.4,
-        ease: 'sine'
-      })
-
-      // HIT ME UP FORM
-      const formInputs = document.querySelector('#contact-form').querySelectorAll('div')
-      formInputs.forEach((formInput) => {
-        gsap.from(formInput, {
-          scrollTrigger: {
-            toggleActions: 'play none none none',
-            trigger: formInput,
-            start: '80% bottom'
-          },
-          opacity: 0,
-          y: 100,
-          duration: 0.4,
-          ease: 'sine'
-        })
-        gsap.from(formInput.querySelector('label'), {
-          scrollTrigger: {
-            toggleActions: 'play none none none',
-            trigger: formInput,
-            start: '80% bottom'
-          },
-          opacity: 0,
-          x: 100,
-          duration: 0.3,
-          delay: 0.3,
-          ease: 'sine'
-        })
-      })
-
-      const formButton = document.querySelector('#contact-form').querySelector('button')
-      gsap.from(formButton, {
-        scrollTrigger: {
-          toggleActions: 'play none none none',
-          trigger: formButton,
-          start: '80% bottom'
-        },
-        opacity: 0,
-        y: 100,
-        duration: 0.4,
-        ease: 'sine'
-      })
     },
 
     async submitForm() {
@@ -257,12 +199,12 @@ export default {
     <section id="portfolio">
       <div class="wrapper">
         <h2>Portfolio<span class="small">:</span></h2>
-        <p>
+        <p class="fly-in">
           I'm a passionate full-stack developer with focus on Vue 3, Node.js, Express.js and SQL. Here are some
           of the projects I have worked on:
         </p>
 
-        <CarousellComp><li class="carousell__item" v-for="(item, i) in $store.state.projects" :key="i">
+        <CarousellComp class="fly-in"><li class="carousell__item" v-for="(item, i) in $store.state.projects" :key="i">
           <RouterLink :to="'/project/' + i">
             <div class="link--img">
               <img :src="item.images[0]" alt="Display of homepage of site" />
@@ -292,7 +234,7 @@ export default {
           id="contact-form"
           :class="{ loading: contactFormLoading }"
         >
-          <div>
+          <div class="fly-in">
             <label for="email" class="required">Email</label>
             <input
               type="email"
@@ -306,7 +248,7 @@ export default {
             />
           </div>
 
-          <div>
+          <div class="fly-in">
             <label for="message" class="required">Message</label>
             <textarea
               name="message"
@@ -319,7 +261,7 @@ export default {
             ></textarea>
           </div>
 
-          <button type="submit" class="button-1" v-if="!contactFormLoading">Send</button>
+          <button type="submit" class="button-1 fly-in" v-if="!contactFormLoading">Send</button>
           <button class="button-1" disabled v-else>Sending...</button>
         </form>
       </div>
