@@ -13,7 +13,7 @@
           >: "{{ message }}"</code
         >
 
-        <RouterLink to="/" class="link-1">Back to home</RouterLink>
+        <RouterLink to="/" class="button-1">Back to home</RouterLink>
       </div>
 
       <MouseTrailComp uniqueId="mouse-trail--thanks" />
@@ -40,8 +40,10 @@ export default {
 </script>
 
 <style scoped>
-.link-1 {
+.button-1 {
   margin-top: 1rem;
+  width: fit-content;
+  padding: 0.8em 1.5em;
 }
 
 .header p {
