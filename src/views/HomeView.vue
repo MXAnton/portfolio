@@ -173,6 +173,9 @@ export default {
   <main>
     <section id="home">
       <div class="wrapper">
+        <div class="photo">
+        </div>
+        
         <h1 class="flip-on-hover">
           <div v-for="word in 'Anton Lehrberg'.split(' ')" class="flip-on-hover__word">
             <div v-for="letter in word" class="flip-on-hover__letter">
@@ -180,6 +183,7 @@ export default {
             </div>
           </div>
         </h1>
+
 
         <p class="flip-on-hover h3">
           <div v-for="word in 'Full stack developer'.split(' ')" class="flip-on-hover__word">
@@ -325,6 +329,36 @@ export default {
 </template>
 
 <style scoped>
+.photo {
+  width: 14rem;
+  aspect-ratio: 1/1;
+
+  margin-bottom: 1rem;
+
+
+  background-image: url('/src/assets/me.jpg');
+  background-size: cover;
+  background-position: center center;
+  box-shadow: 0 .4em .3em .2em rgba(0, 0, 0, 0.2);
+
+  animation: photo-anim 8s linear infinite;
+  transition: all 1s ease-in-out;
+}
+@keyframes photo-anim {
+  0% {
+    border-radius: 60% 40% 40% 70%/60% 40% 70% 40%;
+  }
+  40% {
+    border-radius: 40% 60% 70% 40%/50% 60% 40% 60%;
+  }
+  70% {
+    border-radius: 70% 50% 30% 40%/70% 30% 80% 50%;
+  }
+  100% {
+    border-radius: 60% 40% 40% 70%/60% 40% 70% 40%;
+  }
+}
+
 .flip-on-hover {
   display: flex;
   flex-wrap: wrap;
