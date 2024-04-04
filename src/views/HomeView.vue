@@ -492,4 +492,14 @@ export default {
     grid-template-columns: 1fr 1fr;
   }
 }
+@media only screen and (width < 450px) {
+  h1 {
+    font-size: 2.3rem;
+    text-shadow: 0px 2px 1px var(--color-text--dark);
+  }
+
+  .h3 {
+    margin-top: .5em;
+  }
+}
 </style>
