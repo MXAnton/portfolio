@@ -126,6 +126,11 @@ h1,
 h2 {
   text-shadow: none;
 }
+@media screen and (width < 500px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
 
 h2 {
   font-size: 1.2rem;
