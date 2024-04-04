@@ -29,7 +29,7 @@ export default {
       }
 
       window.addEventListener('mousemove', this.mouseMove)
-      window.addEventListener('scroll', this.scrollMove)
+      // window.addEventListener('scroll', this.scrollMove)
       window.addEventListener('resize', this.viewportChange)
 
       this.moveElement()
