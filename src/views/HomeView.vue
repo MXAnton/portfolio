@@ -385,7 +385,7 @@ export default {
   transform-origin: center bottom;
   transition: all 0.2s ease-in-out;
 
-  animation: 1s ease-out 0s scale-reverse;
+  animation: .4s ease-out 0s scale-reverse;
 }
 @keyframes scale-reverse {
   0% {
