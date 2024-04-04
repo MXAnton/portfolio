@@ -23,10 +23,10 @@ const store = createStore({
           Music and sound effects is a must have 😃`,
           skills: ['HTML', 'CSS', 'JS'],
           images: [
-            '/images/sc_puzzle_settings.png',
-            '/images/sc_puzzle_show-image.png',
-            '/images/sc_puzzle_paused.png',
-            '/images/sc_puzzle_complete-fireworks.png',
+            '/images/sc_puzzle_1.png',
+            '/images/sc_puzzle_image.png',
+            '/images/sc_puzzle_pause.png',
+            '/images/sc_puzzle_zoom-pan.png',
             '/images/sc_puzzle_completed.png'
           ],
           github: 'https://github.com/MXAnton/puzzle-online'
@@ -49,10 +49,13 @@ const store = createStore({
             'Project Management'
           ],
           images: [
-            '/images/sc_onezeroacademy_landing-page.jpeg',
-            '/images/sc_onezeroacademy_dragndrop.jpeg',
-            '/images/sc_onezeroacademy_multiple-choice-question.jpeg',
-            '/images/sc_onezeroacademy_interactive.jpeg'
+            '/images/sc_onezeroacademy_landing-page.png',
+            '/images/sc_onezeroacademy_dragndrop.png',
+            '/images/sc_onezeroacademy_multiple-choice.png',
+            '/images/sc_onezeroacademy_click-through.png',
+            '/images/sc_onezeroacademy_super-layout.png',
+            '/images/sc_onezeroacademy_course.png',
+            '/images/sc_onezeroacademy_account.png'
           ]
         },
 
@@ -66,7 +69,7 @@ const store = createStore({
             'Together with a designer from Gamifiera I developed their website using Vue.',
           skills: ['Vue.js', 'Gitlab', 'Consulting', 'Teamwork'],
           images: [
-            '/images/sc_gamifiera_landing-page.jpg',
+            '/images/sc_gamifiera_landing-page.png',
             '/images/sc_gamifiera_landing-page-2.png',
             '/images/sc_gamifiera_customer-case-1.png',
             '/images/sc_gamifiera_customer-case-2.png'
@@ -83,7 +86,7 @@ const store = createStore({
             'When the old website through Idrottonline was shut down, I took on the task of designing, developing, and launching a new website for them.',
           skills: ['Vue.js', 'Google Firestore & Auth', 'MongoDB', 'Figma'],
           images: [
-            '/images/sc_mhfothem.jpg',
+            '/images/sc_mhfothem_landing-page.png',
             '/images/sc_mhfothem_facility.png',
             '/images/sc_mhfothem_footer.png',
             '/images/sc_mhfothem_calendar.png',
