@@ -342,8 +342,8 @@ export default {
   background-position: center center;
   box-shadow: 0 .4em .3em .2em rgba(0, 0, 0, 0.2);
 
-  animation: photo-anim 8s linear infinite;
-  transition: all 1s ease-in-out;
+  animation: photo-anim 8s linear infinite alternate;
+  transition: box-shadow .3s ease-in-out;
 }
 @keyframes photo-anim {
   0% {
@@ -358,6 +358,10 @@ export default {
   100% {
     border-radius: 60% 40% 40% 70%/60% 40% 70% 40%;
   }
+}
+.photo:hover {
+  box-shadow: 0 .4em .8em .6em rgba(0, 0, 0, 0.2);
+  
 }
 
 .flip-on-hover {
