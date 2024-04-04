@@ -8,13 +8,15 @@ import Botpoison from '@botpoison/browser'
 import MouseTrailComp from '../components/MouseTrailComp.vue'
 import ExampleComp from '../components/ExampleComp.vue'
 import CarousellComp from '../components/CarousellComp.vue'
+import LinkedinIcon from '../components/icons/LinkedinIcon.vue'
+import GithubIcon from '../components/icons/GithubIcon.vue'
 
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 export default {
-  components: { MouseTrailComp, ExampleComp, CarousellComp },
+  components: { MouseTrailComp, ExampleComp, CarousellComp, LinkedinIcon, GithubIcon },
   data() {
     return {
       botpoison: null,
@@ -228,6 +230,20 @@ export default {
       <div class="wrapper">
         <h2>Hit me up<span class="small">:</span></h2>
 
+        <div class="socials fly-in">
+          <!-- <h3>Socials<span class="small">:</span></h3> -->
+
+          <ul>
+            <li>    <a class="link-1" href="https://www.linkedin.com/in/anton-lehrberg/" target="_blank" rel="noopener noreferrer">
+            <LinkedinIcon /> https://www.linkedin.com/in/anton-lehrberg/
+          </a></li>
+          <li>
+          <a class="link-1" href="https://github.com/MXAnton" target="_blank" rel="noopener noreferrer">
+            <GithubIcon /> https://github.com/MXAnton
+          </a></li>
+          </ul>
+        </div>
+
         <form
           @submit.prevent="submitForm"
           class="form-1"
@@ -264,7 +280,10 @@ export default {
           <button type="submit" class="button-1 fly-in" v-if="!contactFormLoading">Send</button>
           <button class="button-1" disabled v-else>Sending...</button>
         </form>
+
+     
       </div>
+      
       <MouseTrailComp uniqueId="mouse-trail--contact" />
     </section>
   </main>
@@ -506,6 +525,31 @@ export default {
 /* #region CONTACT */
 #contact {
   --color-background: none;
+}
+
+.socials ul {
+  font-size: .8rem;
+  
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+  display: flex;
+  flex-direction: column;
+  gap: .8em;
+}
+.socials a {
+  font-size: 1em;
+  color: var(--color-text);
+
+  display: flex;
+  align-items: center;
+}
+.socials a:hover {
+  filter: brightness(.9);
+}
+.socials a svg {
+  font-size: 2em;
 }
 /* #endregion CONTACT */
 
