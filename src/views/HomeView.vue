@@ -329,6 +329,7 @@ export default {
 </template>
 
 <style scoped>
+/* #region HERO */
 .photo {
   width: 14rem;
   aspect-ratio: 1/1;
@@ -400,7 +401,6 @@ export default {
   transform: scale(-1, 1);
 }
 
-/* HERO / HOME */
 #home > .wrapper {
   gap: 0;
   align-items: center;
@@ -430,8 +430,9 @@ export default {
 
   color: var(--color-text);
 }
+/* #endregion HERO */
 
-/* skills */
+/* #region SKILLS */
 #skills {
   --color-background: var(--green-yellow);
   --color-text: var(--blue--dark);
@@ -452,8 +453,9 @@ export default {
 .skills-wrapper:not(.skills-wrapper--tech) .skills__row {
   justify-content: end;
 }
+/* #endregion SKILLS */
 
-/* portfolio */
+/* #region PORTFOLIO */
 #portfolio {
   --color-background: var(--blue);
   --color-text: var(--blue--lighter);
@@ -463,11 +465,84 @@ export default {
 .examples {
   width: 100%;
   max-width: 700px;
-
+  
   display: grid;
   grid-template-columns: 1fr;
-
+  
   gap: 1.5rem;
+}
+
+/* #region CAROUSELL SPECIFICS */
+.carousell__item > a {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  margin: 2px 0 4px;
+
+  background-color: var(--blue--dark);
+  text-decoration: none;
+  box-shadow: 0 4px 0 var(--blue--dark60);
+
+  transform: translateY(0px);
+  transition: all 0.1s ease-in-out, border 0.2s ease-in-out;
+}
+.carousell__item > a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--blue--dark60);
+  opacity: 0.9;
+  filter: blur(1px) brightness(0.4);
+}
+.carousell__item::after {
+  content: 'Click to read more';
+  font-size: calc(min(5svw, 2rem));
+  font-weight: 700;
+  line-height: 100%;
+  color: black;
+  text-align: center;
+  text-transform: uppercase;
+
+  padding: 0.2em;
+  background-color: white;
+  border-radius: 0.2em;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 2;
+
+  filter: brightness(1.5);
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: opacity 0.1s ease-in-out;
+}
+.carousell__item:has(a:hover)::after {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+.carousell__item > a:active {
+  transform: translateY(4px);
+  box-shadow: 0 0px 0 var(--blue--dark60);
+}
+
+.carousell__item__text {
+  padding: 0.5rem 1rem 1.5rem;
+}
+.carousell__item__text h3 {
+  text-shadow: none;
+  font-size: 1.4rem;
+  margin-bottom: 0.3em;
+}
+.carousell__item__text > p {
+  line-height: 1.3;
+}
+@media screen and (width < 400px) {
+  .carousell__item__text {
+    padding: 0.8rem 2.2rem 1.5rem;
+  }
 }
 
 .carousell__item__text .button-1 {
@@ -476,16 +551,19 @@ export default {
   padding: .2em .6em;
   border-radius: .3em;
   box-shadow: none;
-
+  
   margin-top: .6em;
 }
+/* #endregion CAROUSELL SPECIFICS */
+/* #endregion PORTFOLIO */
 
-/* contact */
+/* #region CONTACT */
 #contact {
   --color-background: none;
 }
+/* #endregion CONTACT */
 
-/* MEDIA QUERIES */
+/* #region MEDIA QUERIES */
 @media only screen and (min-width: 699px) {
   .examples {
     display: grid;
@@ -502,4 +580,5 @@ export default {
     margin-top: .5em;
   }
 }
+/* #endregion MEDIA QUERIES */
 </style>

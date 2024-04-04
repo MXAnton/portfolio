@@ -161,6 +161,7 @@ h2 {
   margin-bottom: 0.7rem;
 }
 
+/* #region ENLARGED IMAGE MODAL */
 .enlarged-image-modal {
   position: fixed;
   top: 0;
@@ -228,15 +229,11 @@ h2 {
   height: 100%;
   object-fit: contain;
 }
+/* #endregion ENLARGED IMAGE MODAL */
 </style>
 <style>
-.carousell__dots > li > button {
-  background-color: var(--blue--dark);
-}
-.carousell__dots > li.current > button {
-  background-color: var(--color-text);
-}
-
+/* #region CAROUSELL SPECIFICS */
+/* CAROUSELL ENLARGABLE IMAGE */
 .btn--enlarge-image {
   padding: 0;
   margin: 0;
@@ -274,4 +271,5 @@ h2 {
 .btn--enlarge-image:hover > img {
   transform: scale(1.05);
 }
+/* #endregion CAROUSELL SPECIFICS */
 </style>

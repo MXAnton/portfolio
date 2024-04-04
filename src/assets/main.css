@@ -1,12 +1,8 @@
 @import './base.css';
 
-/* #app {
-  max-height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y proximity;
-} */
+/* #region APP */
 #app > * {
-  animation: site-load 0.4s forwards ease-in-out;
+  animation: site-load 0.3s forwards ease-in-out;
 }
 @keyframes site-load {
   from {
@@ -16,8 +12,9 @@
     opacity: 1;
   }
 }
+/* #endregion APP */
 
-/* GENERAL */
+/* #region GENERAL */
 a {
   text-decoration: underline;
   color: var(--white);
@@ -46,8 +43,9 @@ img,
 svg {
   display: block;
 }
+/* #endregion GENERAL */
 
-/* TEXTS */
+/* #region TEXTS */
 h1,
 h2 {
   font-size: 3rem;
@@ -83,8 +81,9 @@ h4,
 
   text-shadow: 0px 1px 1px var(--color-text--dark);
 }
+/* #endregion TEXTS */
 
-/* FORMS */
+/* #region FORMS */
 .form-1 {
   display: flex;
   flex-direction: column;
@@ -94,8 +93,9 @@ h4,
   opacity: 0.6;
   pointer-events: none;
 }
+/* #endregion FORMS */
 
-/* INPUTS */
+/* #region INPUTS */
 .input-1,
 .textarea-1 {
   width: 100%;
@@ -132,8 +132,9 @@ h4,
   resize: none;
   line-height: 1.5;
 }
+/* #endregion INPUTS */
 
-/* LABELS */
+/* #region LABELS */
 label {
   display: block;
   font-size: 0.8rem;
@@ -143,8 +144,9 @@ label.required:after {
   content: '*';
   color: red;
 }
+/* #endregion LABELS */
 
-/* BUTTONS */
+/* #region BUTTONS */
 .button-1 {
   display: block;
 
@@ -205,8 +207,9 @@ label.required:after {
   transform: translateY(2px);
   box-shadow: 0 0px 0 var(--blue--dark60);
 }
+/* #endregion BUTTONS */
 
-/* LINKS */
+/* #region LINKS */
 .link--img > img {
   width: 100%;
 }
@@ -223,8 +226,9 @@ label.required:after {
   /* align-items: center; */
   gap: 0.4em;
 }
+/* #endregion LINKS */
 
-/* code */
+/* #region CODE */
 .code--form {
   hyphens: auto;
   -moz-hyphens: auto;
@@ -255,8 +259,9 @@ label.required:after {
   font-weight: bold;
   font-size: 0.7em;
 }
+/* #endregion CODE */
 
-/* CALL TO ACTION */
+/* #region CALL TO ACTION */
 .call-to-action--scroll {
   position: absolute;
   bottom: 110px;
@@ -280,8 +285,9 @@ label.required:after {
     transform: translateY(0) scale(1);
   }
 }
+/* #endregion CALL TO ACTION */
 
-/* SECTIONS */
+/* #region SECTIONS */
 section {
   min-height: 100vh;
 
@@ -313,8 +319,9 @@ section > .wrapper {
   /* align-items: center; */
   gap: 1.5rem;
 }
+/* #endregion SECTIONS */
 
-/* SKILLS */
+/* #region SKILLS */
 .skills-wrapper {
   display: flex;
   flex-direction: column;
@@ -348,7 +355,10 @@ section > .wrapper {
 
   font-size: 1rem;
 }
+/* #endregion SKILLS */
 
+/* #region MARGINS */
 .mt--normal {
   margin-top: 1rem;
 }
+/* #endregion MARGINS */

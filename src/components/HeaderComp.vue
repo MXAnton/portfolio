@@ -171,7 +171,7 @@ header > .wrapper {
   z-index: 2;
 }
 
-/* NAV MENU */
+/* #region NAV MENU */
 #nav-menu {
   position: absolute;
   top: 0;
@@ -257,8 +257,9 @@ header > .wrapper {
   transform: translateX(0.3em);
   opacity: 1;
 }
+/* #endregion NAV MENU */
 
-/* media queries */
+/* #region MEDIA QUERIES */
 @media only screen and (min-width: 899px) {
   header > .wrapper {
     max-width: calc(var(--site-max-width) + 64px + 42px);
@@ -270,4 +271,5 @@ header > .wrapper {
     max-width: calc(var(--site-max-width) + 64px + 124px);
   }
 }
+/* #endregion MEDIA QUERIES */
 </style>

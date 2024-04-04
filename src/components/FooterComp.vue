@@ -61,7 +61,7 @@ export default {
 </template>
 
 <style scoped>
-/* BUBBLE */
+/* #region BUBBLE */
 #bubble-wrapper {
   height: 100%;
   width: 100%;
@@ -98,6 +98,7 @@ export default {
     transform: translate(-50%, -10%);
   }
 }
+/* #endregion BUBBLE */
 
 /* FOOTER */
 footer {
