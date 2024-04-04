@@ -215,11 +215,12 @@ label.required:after {
   text-decoration: underline;
   color: var(--white);
 
-  font-style: none;
+  font-style: normal;
+  line-height: 1.2;
 
   width: fit-content;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   gap: 0.4em;
 }
 

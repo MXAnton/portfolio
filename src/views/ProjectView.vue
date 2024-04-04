@@ -17,15 +17,17 @@
 
         <div v-if="project.link">
           <h2>Live website<span class="small">:</span></h2>
-          <a :href="project.link" target="_blank" rel="noopener noreferrer" class="link-1"
-            >{{ project.link }} <LinkIcon :size="'1em'"
-          /></a>
+          <a :href="project.link" target="_blank" rel="noopener noreferrer" class="link-1">
+            <LinkIcon :size="'1em'" />
+            {{ project.link }}
+          </a>
         </div>
         <div v-if="project.github">
           <h2>Code<span class="small">:</span></h2>
-          <a :href="project.github" target="_blank" rel="noopener noreferrer" class="link-1"
-            >{{ project.github }} <LinkIcon :size="'1em'"
-          /></a>
+          <a :href="project.github" target="_blank" rel="noopener noreferrer" class="link-1">
+            <LinkIcon :size="'1em'" />
+            {{ project.github }}
+          </a>
         </div>
 
         <div class="skills-wrapper">
