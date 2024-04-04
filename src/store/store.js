@@ -107,7 +107,7 @@ const store = createStore({
             'This was my "gymnasiearbete". It was a fully working web store with products, basket and payment integrated using Stripe.',
           skills: ['Stripe', 'Vue.js', 'Node.js', 'Express.js', 'SQL', 'Figma'],
           images: [
-            '/images/sc_delari3d.jpg',
+            '/images/sc_delari3d.png',
             '/images/sc_delari3d_contact-1.png',
             '/images/sc_delari3d_contact-2.png',
             '/images/sc_delari3d_basket.png',
