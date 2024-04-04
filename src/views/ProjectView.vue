@@ -117,6 +117,7 @@ export default {
 main section {
   background-color: var(--blue);
   --color-text: var(--blue--lighter);
+  --color-text--dark: var(--blue--light);
 }
 
 h1,
@@ -228,7 +229,7 @@ h2 {
 </style>
 <style>
 .carousell__dots > li > button {
-  background-color: var(--blue);
+  background-color: var(--blue--dark);
 }
 .carousell__dots > li.current > button {
   background-color: var(--color-text);
