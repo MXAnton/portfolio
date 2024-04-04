@@ -155,6 +155,8 @@ header {
   padding: 32px var(--horizontal--padding);
 
   z-index: 2;
+
+  pointer-events: none;
 }
 header > .wrapper {
   width: 100%;
@@ -169,6 +171,7 @@ header > .wrapper {
 #logo,
 #hamburger-menu__button {
   z-index: 2;
+  pointer-events: all;
 }
 
 /* #region NAV MENU */
@@ -181,6 +184,7 @@ header > .wrapper {
   height: 0;
 
   transition: background-color 0.1s ease-in-out;
+  pointer-events: all;
 }
 #nav-menu.active {
   width: 100%;
