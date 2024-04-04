@@ -101,7 +101,7 @@ const store = createStore({
 
         {
           name: 'Delar i 3D',
-          time: 'Late 2022 - early. 2023',
+          time: 'Late 2022 - early 2023',
           intro: 'Web store where you can by 3D-printed objects.',
           description:
             'This was my "gymnasiearbete". It was a fully working web store with products, basket and payment integrated using Stripe.',
