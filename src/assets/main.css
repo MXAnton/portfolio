@@ -99,7 +99,7 @@ h4,
 .input-1,
 .textarea-1 {
   width: 100%;
-  max-width: 700px;
+  max-width: var(--site-max-width);
 
   padding: 0.6em 0.75em;
 
@@ -151,7 +151,7 @@ label.required:after {
   display: block;
 
   width: 100%;
-  max-width: 700px;
+  max-width: var(--site-max-width);
 
   padding: 0.6em 0.75em;
 

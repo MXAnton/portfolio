@@ -410,7 +410,7 @@ export default {
 
 .examples {
   width: 100%;
-  max-width: 700px;
+  max-width: var(--site-max-width);
   
   display: grid;
   grid-template-columns: 1fr;
