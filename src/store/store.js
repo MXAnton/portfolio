@@ -37,9 +37,13 @@ const store = createStore({
           time: 'February 2023 - now',
           link: 'https://onezeroacademy.se/',
           intro:
-            'Learn computer science in a fun and interactive way, by taking courses on onezeroacademy.se.',
+            'Learn computer science in a fun and interactive way, by taking courses on onezeroacademy.',
           description: `From ideas and Figma design I decide what technologies to use, develop and publish the website. It is still under development, but we have come a far way.
-          The website is hosted on a VPS using Caddy Server to serve the frontend and backend. The frontend is built using Vue and Axios to connect to the backend API which is built using Node.js and Express. PostgreSQL is used as database.`,
+          The website is hosted on a VPS using Caddy Server to serve the frontend and backend. The frontend is built using Vue and Axios to connect to the backend API which is built using Node.js and Express. PostgreSQL is used as database.
+          Guest users are allowed to do the courses but their progress gets deleted when they refresh or leave the site. If you create an account your progress will be stored in the database.
+          When completing a lesson your score increases, the more correct answers the more score you get.
+          There are 10+ different lesson bites with different layout and/or content.
+          If something is wrong all users can report the problem by pressing the questionmark in the bottom left corner.`,
           skills: [
             'Vue.js',
             'Node.js',
