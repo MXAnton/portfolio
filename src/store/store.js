@@ -64,6 +64,33 @@ const store = createStore({
         },
 
         {
+          name: 'Attendance system',
+          time: 'March 2024 - March 2024',
+          intro: 'Report attendance in a neat and simple user interface, MHF Othem.',
+          description: `Report attendance in a neat and simple user interface that automatically sends files to Dropbox App formatted for easy importing into Excel, from which the responsible person of the association can easily access attendance and edit the membership list.
+          This saves a lot of time for the attendance reporting person to access the information via Dropbox and avoid entering all attendance into Excel from paper (which was used before).`,
+          skills: [
+            'Vue.js',
+            'Node.js',
+            'Express.js',
+            'MySQL',
+            'Caddy Server',
+            'Dropbox App',
+            'Ubuntu',
+            'Raspberry Pi server',
+            'Project Management'
+          ],
+          images: [
+            '/images/sc_mhfnarvarosystem_landing-page.png',
+            '/images/sc_mhfnarvarosystem_landing-page-2.png',
+            '/images/sc_mhfnarvarosystem_names.png',
+            '/images/sc_mhfnarvarosystem_confirm.png',
+            '/images/sc_mhfnarvarosystem_login.png',
+            '/images/sc_mhfnarvarosystem_narvarolist.png'
+          ]
+        },
+
+        {
           name: 'gamifiera.com',
           time: 'April 2023 - May 2023',
           link: 'https://www.gamifiera.com/',
