@@ -33,11 +33,11 @@ const store = createStore({
         },
 
         {
-          name: 'onezeroacademy.se',
+          name: 'bitlearny.com',
           time: 'February 2023 - now',
-          link: 'https://onezeroacademy.se/',
+          link: 'https://bitlearny.com/',
           intro:
-            'Learn computer science in a fun and interactive way, by taking courses on onezeroacademy.',
+            'Learn computer science in a fun and interactive way, by taking courses on bitlearny.',
           description: `From ideas and Figma design I decide what technologies to use, develop and publish the website. It is still under development, but we have come a far way.
           The website is hosted on a VPS using Caddy Server to serve the frontend and backend. The frontend is built using Vue and Axios to connect to the backend API which is built using Node.js and Express. PostgreSQL is used as database.
           Guest users are allowed to do the courses but their progress gets deleted when they refresh or leave the site. If you create an account your progress will be stored in the database.
@@ -53,13 +53,13 @@ const store = createStore({
             'Project Management'
           ],
           images: [
-            '/images/sc_onezeroacademy_landing-page.png',
-            '/images/sc_onezeroacademy_dragndrop.png',
-            '/images/sc_onezeroacademy_multiple-choice.png',
-            '/images/sc_onezeroacademy_click-through.png',
-            '/images/sc_onezeroacademy_super-layout.png',
-            '/images/sc_onezeroacademy_course.png',
-            '/images/sc_onezeroacademy_account.png'
+            '/images/sc_bitlearny_landing-page.png',
+            '/images/sc_bitlearny_dragndrop.png',
+            '/images/sc_bitlearny_multiple-choice.png',
+            '/images/sc_bitlearny_click-through.png',
+            '/images/sc_bitlearny_super-layout.png',
+            '/images/sc_bitlearny_course.png',
+            '/images/sc_bitlearny_account.png'
           ]
         },
 
