@@ -67,6 +67,7 @@ const store = createStore({
           name: 'Attendance system',
           time: 'March 2024 - March 2024',
           link: 'https://www.youtube.com/watch?v=IAtH0lDpLbo',
+          github: 'https://github.com/MXAnton/mhf-othem-narvarosystem',
           intro: 'Report attendance in a neat and simple user interface, MHF Othem.',
           description: `Report attendance in a neat and simple user interface that automatically sends files to Dropbox App formatted for easy importing into Excel, from which the responsible person of the association can easily access attendance and edit the membership list.
           This saves a lot of time for the attendance reporting person to access the information via Dropbox and avoid entering all attendance into Excel from paper (which was used before).`,
