@@ -207,7 +207,7 @@ export default {
         </p>
 
         <CarousellComp class="fly-in"><li class="carousell__item" v-for="(item, i) in $store.state.projects" :key="i">
-          <RouterLink :to="'/project/' + i">
+          <RouterLink :to="'/project/' + item.id">
             <div class="link--img">
               <img :src="item.images[0]" alt="Display of homepage of site" />
             </div>

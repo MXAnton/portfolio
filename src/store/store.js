@@ -6,6 +6,7 @@ const store = createStore({
     return {
       projects: [
         {
+          id: 0,
           name: 'Puzzle Online',
           time: 'January 2024 - now',
           link: 'https://puzzle-online.netlify.app/',
@@ -29,10 +30,11 @@ const store = createStore({
             '/images/sc_puzzle_zoom-pan.png',
             '/images/sc_puzzle_completed.png'
           ],
-          github: 'https://github.com/MXAnton/puzzle-online'
+          github: ['https://github.com/MXAnton/puzzle-online']
         },
 
         {
+          id: 1,
           name: 'bitlearny.com',
           time: 'February 2023 - now',
           link: 'https://bitlearny.com/',
@@ -64,10 +66,39 @@ const store = createStore({
         },
 
         {
+          id: 5,
+          name: 'Your shoes',
+          time: 'Late 2023 - now',
+          link: 'https://your-shoes.netlify.app/',
+          github: [
+            'https://github.com/MXAnton/webshop-frontend',
+            'https://github.com/MXAnton/webshop-backend'
+          ],
+          intro: 'Modern responsive webshop selling shoes.',
+          description: `Browse different shoes with several filters and sorting options to find the correct shoes.
+            Look through the different colors and their images.
+            Select your desired size and quantity.
+            Shopping cart where you can easily change the quantity of or remove shoes from the cart.
+            Checkout using Stripe (test mode).`,
+          skills: ['Stripe', 'Vue.js', 'Node.js', 'Express.js', 'MySQL', 'Figma'],
+          images: [
+            '/images/sc_your-shoes_home.png',
+            '/images/sc_your-shoes_men.png',
+            '/images/sc_your-shoes_women.png',
+            '/images/sc_your-shoes_mini-shopping-cart.png',
+            '/images/sc_your-shoes_shopping-cart-checkout.png',
+            '/images/sc_your-shoes_stripe-checkout.png',
+            '/images/sc_your-shoes_contact.png',
+            '/images/sc_your-shoes_about.png'
+          ]
+        },
+
+        {
+          id: 2,
           name: 'Attendance system',
           time: 'March 2024 - March 2024',
           link: 'https://www.youtube.com/watch?v=IAtH0lDpLbo',
-          github: 'https://github.com/MXAnton/mhf-othem-narvarosystem',
+          github: ['https://github.com/MXAnton/mhf-othem-narvarosystem'],
           intro: 'Report attendance in a neat and simple user interface, MHF Othem.',
           description: `Report attendance in a neat and simple user interface that automatically sends files to Dropbox App formatted for easy importing into Excel, from which the responsible person of the association can easily access attendance and edit the membership list.
           This saves a lot of time for the attendance reporting person to access the information via Dropbox and avoid entering all attendance into Excel from paper (which was used before).`,
@@ -93,6 +124,7 @@ const store = createStore({
         },
 
         {
+          id: 3,
           name: 'gamifiera.com',
           time: 'April 2023 - May 2023',
           link: 'https://www.gamifiera.com/',
@@ -110,6 +142,7 @@ const store = createStore({
         },
 
         {
+          id: 4,
           name: 'mhfothem.se',
           time: 'Nobember 2022 - January 2023',
           link: 'https://www.mhfothem.se/',
@@ -129,22 +162,6 @@ const store = createStore({
             '/images/sc_mhfothem_news-nav.png',
             '/images/sc_mhfothem_edit-new.png',
             '/images/sc_mhfothem_edit-new-2.png'
-          ]
-        },
-
-        {
-          name: 'Delar i 3D',
-          time: 'Late 2022 - early 2023',
-          intro: 'Web store where you can by 3D-printed objects.',
-          description:
-            'This was my "gymnasiearbete". It was a fully working web store with products, basket and payment integrated using Stripe.',
-          skills: ['Stripe', 'Vue.js', 'Node.js', 'Express.js', 'SQL', 'Figma'],
-          images: [
-            '/images/sc_delari3d.png',
-            '/images/sc_delari3d_contact-1.png',
-            '/images/sc_delari3d_contact-2.png',
-            '/images/sc_delari3d_basket.png',
-            '/images/sc_delari3d_menu.png'
           ]
         }
       ]

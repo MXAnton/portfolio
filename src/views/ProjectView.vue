@@ -24,9 +24,16 @@
         </div>
         <div v-if="project.github">
           <h2>Code<span class="small">:</span></h2>
-          <a :href="project.github" target="_blank" rel="noopener noreferrer" class="link-1">
+          <a
+            v-for="link in project.github"
+            :key="link"
+            :href="link"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link-1"
+          >
             <LinkIcon :size="'1em'" />
-            {{ project.github }}
+            {{ link }}
           </a>
         </div>
 
@@ -66,6 +73,7 @@
   </main>
 
   <dialog
+    v-if="project != null"
     @click="closeEnlargedImage"
     ref="enlargedImageModal"
     id="enlarged-image-modal"
@@ -107,7 +115,11 @@ export default {
   },
 
   created() {
-    this.project = this.$store.state.projects[this.$route.params.projectIndex]
+    this.project = this.$store.state.projects.find(
+      (project) => project.id.toString() === this.$route.params.id
+    )
+    console.log(this.$route.params.id)
+    console.log(this.project)
     if (this.project == null) {
       this.$router.push('/')
     }
